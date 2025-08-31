@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Multi-Camera Detection</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Multi-Camera Detection</h1>
+        
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        
+        <div class="alert alert-info">
+            <h4>Detection Active</h4>
+            <p>Currently monitoring {{ cameras|length }} cameras for missing persons.</p>
+            <p>When a match is found, an email will be sent automatically.</p>
+        </div>
+        
+        <h3>Active Cameras:</h3>
+        <ul>
+            {% for camera in cameras %}
+                <li>{{ camera.name }} ({{ camera.get_camera_type_display }})</li>
+            {% endfor %}
+        </ul>
+        
+        <a href="{% url 'stop_multi_camera' %}" class="btn btn-danger">Stop Detection</a>
+        <a href="{% url 'camera_list' %}" class="btn btn-secondary">Back to Camera List</a>
+    </div>
+</body>
+</html>

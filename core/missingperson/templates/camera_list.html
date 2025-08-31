@@ -1,0 +1,461 @@
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Camera Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        .camera-card {
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        .camera-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .camera-status {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .status-checking {
+            background-color: #6c757d;
+            color: white;
+        }
+        .status-connected {
+            background-color: #28a745;
+            color: white;
+        }
+        .status-disconnected {
+            background-color: #dc3545;
+            color: white;
+        }
+        .status-error {
+            background-color: #ffc107;
+            color: black;
+        }
+        .camera-preview {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 5px;
+            background-color: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+        }
+        .refresh-btn {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+        .card-body {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Camera Management</h1>
+        
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+        
+        <div class="d-flex justify-content-between mb-4">
+            <a href="{% url 'add_camera' %}" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> Add New Camera
+            </a>
+            <div>
+                <a href="{% url 'start_multi_camera' %}" class="btn btn-success me-2">
+                    <i class="bi bi-play-circle"></i> Start Detection
+                </a>
+                <a href="{% url 'stop_multi_camera' %}" class="btn btn-danger me-2">
+                    <i class="bi bi-stop-circle"></i> Stop Detection
+                </a>
+                <button id="refreshPreviews" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-clockwise"></i> Refresh
+                </button>
+            </div>
+        </div>
+        
+        <div class="row" id="cameraContainer">
+            {% for camera in cameras %}
+            <div class="col-md-4 mb-4">
+                <div class="card camera-card h-100">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="card-title mb-0">{{ camera.name }}</h5>
+                        <span class="camera-status status-checking" id="status-{{ camera.id }}">Checking...</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="camera-preview" id="preview-{{ camera.id }}">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <p class="card-text mb-1">
+                                <strong>Type:</strong> {{ camera.get_camera_type_display }}<br>
+                                <strong>Source:</strong> <code>{{ camera.source }}</code><br>
+                                {% if camera.description %}
+                                <strong>Description:</strong> {{ camera.description }}<br>
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-between">
+                            <a href="{% url 'edit_camera' camera.id %}" class="btn btn-sm btn-outline-primary">Edit</a>
+                            <a href="{% url 'delete_camera' camera.id %}" class="btn btn-sm btn-outline-danger">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12">
+                <div class="alert alert-info">
+                    <h4>No cameras found</h4>
+                    <p>Get started by adding your first camera to the system.</p>
+                    <a href="{% url 'add_camera' %}" class="btn btn-primary">Add Your First Camera</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="mt-4">
+            <a href="/" class="btn btn-secondary">Back to Home</a>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Function to update camera previews
+            function updateCameraPreviews() {
+                $.getJSON("{% url 'all_cameras_preview' %}", function(data) {
+                    $.each(data, function(cameraId, cameraInfo) {
+                        const statusElement = $('#status-' + cameraId);
+                        const previewElement = $('#preview-' + cameraId);
+                        
+                        // Update status
+                        statusElement.removeClass('status-checking status-connected status-disconnected status-error');
+                        statusElement.addClass('status-' + cameraInfo.status);
+                        statusElement.text(cameraInfo.status);
+                        
+                        // Update preview if camera is connected
+                        if (cameraInfo.status === 'connected') {
+                            // Clear any existing interval for this camera
+                            if (window['previewInterval_' + cameraId]) {
+                                clearInterval(window['previewInterval_' + cameraId]);
+                            }
+                            
+                            // Load preview image
+                            previewElement.html('<img src="' + cameraInfo.url + '" class="camera-preview-img" style="width: 100%; height: 100%; object-fit: cover;">');
+                            
+                            // Refresh the image every 2 seconds
+                            window['previewInterval_' + cameraId] = setInterval(function() {
+                                const img = previewElement.find('img');
+                                if (img.length) {
+                                    // Add timestamp to prevent caching
+                                    img.attr('src', cameraInfo.url + '?t=' + new Date().getTime());
+                                }
+                            }, 2000);
+                        } else {
+                            // Show error message
+                            previewElement.html(
+                                '<div class="text-center text-danger">' +
+                                '<i class="bi bi-camera-video-off" style="font-size: 2rem;"></i><br>' +
+                                '<small>' + (cameraInfo.error || 'Camera not available') + '</small>' +
+                                '</div>'
+                            );
+                        }
+                    });
+                }).fail(function() {
+                    console.error('Failed to load camera status');
+                    // Set all cameras to error state
+                    $('.camera-status').removeClass('status-checking').addClass('status-error').text('Error');
+                    $('.camera-preview').html(
+                        '<div class="text-center text-danger">' +
+                        '<i class="bi bi-exclamation-triangle" style="font-size: 2rem;"></i><br>' +
+                        '<small>Failed to load camera status</small>' +
+                        '</div>'
+                    );
+                });
+            }
+            
+            // Initial load
+            updateCameraPreviews();
+            
+            // Refresh on button click
+            $('#refreshPreviews').click(function() {
+                // Show loading spinners
+                $('.camera-preview').html('<div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div>');
+                $('.camera-status').removeClass('status-connected status-disconnected status-error').addClass('status-checking').text('Checking...');
+                
+                // Update previews
+                updateCameraPreviews();
+            });
+            
+            // Auto-refresh every 30 seconds
+            setInterval(updateCameraPreviews, 30000);
+        });
+    </script>
+</body>
+</html> {% endcomment %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Camera Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        .camera-card {
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        .camera-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .camera-status {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .status-checking {
+            background-color: #6c757d;
+            color: white;
+        }
+        .status-connected {
+            background-color: #28a745;
+            color: white;
+        }
+        .status-disconnected {
+            background-color: #dc3545;
+            color: white;
+        }
+        .status-error {
+            background-color: #ffc107;
+            color: black;
+        }
+        .camera-preview {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 5px;
+            background-color: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+        }
+        .refresh-btn {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+        .card-body {
+            position: relative;
+        }
+        .detection-status {
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+            background-color: #17a2b8;
+            color: white;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Camera Management</h1>
+        
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+        
+        <div class="d-flex justify-content-between mb-4">
+            <a href="{% url 'add_camera' %}" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> Add New Camera
+            </a>
+            <div>
+                <a href="{% url 'start_multi_camera' %}" class="btn btn-success me-2">
+                    <i class="bi bi-play-circle"></i> Start Detection
+                </a>
+                <a href="{% url 'stop_multi_camera' %}" class="btn btn-danger me-2">
+                    <i class="bi bi-stop-circle"></i> Stop Detection
+                </a>
+                <span id="detectionStatus" class="detection-status">Detection Stopped</span>
+                <button id="refreshPreviews" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-clockwise"></i> Refresh
+                </button>
+            </div>
+        </div>
+        
+        <div class="row" id="cameraContainer">
+            {% for camera in cameras %}
+            <div class="col-md-4 mb-4">
+                <div class="card camera-card h-100">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="card-title mb-0">{{ camera.name }}</h5>
+                        <span class="camera-status status-checking" id="status-{{ camera.id }}">Checking...</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="camera-preview" id="preview-{{ camera.id }}">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <p class="card-text mb-1">
+                                <strong>Type:</strong> {{ camera.get_camera_type_display }}<br>
+                                <strong>Source:</strong> <code>{{ camera.source }}</code><br>
+                                {% if camera.description %}
+                                <strong>Description:</strong> {{ camera.description }}<br>
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-between">
+                            <a href="{% url 'edit_camera' camera.id %}" class="btn btn-sm btn-outline-primary">Edit</a>
+                            <a href="{% url 'delete_camera' camera.id %}" class="btn btn-sm btn-outline-danger">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12">
+                <div class="alert alert-info">
+                    <h4>No cameras found</h4>
+                    <p>Get started by adding your first camera to the system.</p>
+                    <a href="{% url 'add_camera' %}" class="btn btn-primary">Add Your First Camera</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="mt-4">
+            <a href="/" class="btn btn-secondary">Back to Home</a>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Function to update camera previews
+            function updateCameraPreviews() {
+                $.getJSON("{% url 'all_cameras_preview' %}", function(data) {
+                    $.each(data, function(cameraId, cameraInfo) {
+                        const statusElement = $('#status-' + cameraId);
+                        const previewElement = $('#preview-' + cameraId);
+                        
+                        // Update status
+                        statusElement.removeClass('status-checking status-connected status-disconnected status-error');
+                        statusElement.addClass('status-' + cameraInfo.status);
+                        statusElement.text(cameraInfo.status);
+                        
+                        // Update preview if camera is connected
+                        if (cameraInfo.status === 'connected') {
+                            // Clear any existing interval for this camera
+                            if (window['previewInterval_' + cameraId]) {
+                                clearInterval(window['previewInterval_' + cameraId]);
+                            }
+                            
+                            // Load preview image
+                            previewElement.html('<img src="' + cameraInfo.url + '" class="camera-preview-img" style="width: 100%; height: 100%; object-fit: cover;">');
+                            
+                            // Refresh the image every 2 seconds
+                            window['previewInterval_' + cameraId] = setInterval(function() {
+                                const img = previewElement.find('img');
+                                if (img.length) {
+                                    // Add timestamp to prevent caching
+                                    img.attr('src', cameraInfo.url + '?t=' + new Date().getTime());
+                                }
+                            }, 2000);
+                        } else {
+                            // Show error message
+                            previewElement.html(
+                                '<div class="text-center text-danger">' +
+                                '<i class="bi bi-camera-video-off" style="font-size: 2rem;"></i><br>' +
+                                '<small>' + (cameraInfo.error || 'Camera not available') + '</small>' +
+                                '</div>'
+                            );
+                        }
+                    });
+                }).fail(function() {
+                    console.error('Failed to load camera status');
+                    // Set all cameras to error state
+                    $('.camera-status').removeClass('status-checking').addClass('status-error').text('Error');
+                    $('.camera-preview').html(
+                        '<div class="text-center text-danger">' +
+                        '<i class="bi bi-exclamation-triangle" style="font-size: 2rem;"></i><br>' +
+                        '<small>Failed to load camera status</small>' +
+                        '</div>'
+                    );
+                });
+            }
+            
+            // Function to check detection status
+            function checkDetectionStatus() {
+                $.getJSON("{% url 'detection_status' %}", function(data) {
+                    const statusElement = $('#detectionStatus');
+                    if (data.detection_running) {
+                        statusElement.removeClass('bg-secondary bg-danger').addClass('bg-success');
+                        statusElement.text('Detection Running (' + data.active_cameras.length + ' cameras)');
+                    } else {
+                        statusElement.removeClass('bg-success bg-secondary').addClass('bg-danger');
+                        statusElement.text('Detection Stopped');
+                    }
+                });
+            }
+            
+            // Initial load
+            updateCameraPreviews();
+            checkDetectionStatus();
+            
+            // Refresh on button click
+            $('#refreshPreviews').click(function() {
+                // Show loading spinners
+                $('.camera-preview').html('<div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div>');
+                $('.camera-status').removeClass('status-connected status-disconnected status-error').addClass('status-checking').text('Checking...');
+                
+                // Update previews
+                updateCameraPreviews();
+            });
+            
+            // Auto-refresh every 30 seconds
+            setInterval(updateCameraPreviews, 30000);
+            setInterval(checkDetectionStatus, 5000);
+        });
+    </script>
+</body>
+</html>
