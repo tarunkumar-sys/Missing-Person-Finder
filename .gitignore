@@ -31,3 +31,6 @@ staticfiles/
 # OS files
 .DS_Store
 Thumbs.db
+
+#
+missing_persons/

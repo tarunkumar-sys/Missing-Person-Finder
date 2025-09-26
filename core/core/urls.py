@@ -27,8 +27,11 @@ urlpatterns = [
     path('detection-status/', detection_status, name='detection_status'),
     
     # Test URLs
-    # path('test-detection/', test_detection, name='test_detection'),
-    # path('check-cameras/', check_cameras, name='check_cameras'),
+    path('test-detection/', test_detection, name='test_detection'),
+    path('check-cameras/', check_cameras, name='check_cameras'),
+    path('test-face-detection/', test_face_detection, name='test_face_detection'),
+    path('reset-email-flags/', reset_email_flags, name='reset_email_flags'),
+    path('debug-detection/', debug_detection, name='debug_detection'),
 ]
 
 if settings.DEBUG:

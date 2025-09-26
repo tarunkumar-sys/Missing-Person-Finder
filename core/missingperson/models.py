@@ -33,6 +33,7 @@ class Location(models.Model):
     latitude = models.DecimalField(max_digits=9, decimal_places=6)  # Decimal field for latitude (adjust max_digits and decimal_places as needed)
     longitude = models.DecimalField(max_digits=9, decimal_places=6)  # Decimal field for longitude (adjust max_digits and decimal_places as needed)
     detected_at = models.DateTimeField(default=timezone.now)
+    camera = models.CharField(max_length=255, blank=True, null=True)  # Camera name where detection occurred
 
     def __str__(self):
         return f"Location for {self.missing_person.first_name} {self.missing_person.last_name}"

@@ -670,163 +670,211 @@ def update_person(request, person_id):
     return render(request, 'edit.html', {'person': person})
 
 def camera_processor(camera):
-    """Process a single camera stream for face detection"""
+    """Process a single camera stream for face detection - using same method as webcam"""
     global stop_threads, email_sent_flags
     
-    print(f"Starting camera processor for: {camera.name} (ID: {camera.id})")
+    print(f"🎥 Starting camera processor for: {camera.name} (ID: {camera.id})")
+    print(f"   Camera Type: {camera.camera_type}")
+    print(f"   Camera Source: {camera.source}")
+    
+    cap = None
+    retry_count = 0
+    max_retries = 3
     
     try:
-        # Initialize camera capture
-        if camera.camera_type == 'webcam':
-            cap = cv2.VideoCapture(int(camera.source))
-            print(f"Opening webcam with index: {camera.source}")
-        else:
-            cap = cv2.VideoCapture(camera.source)
-            print(f"Opening camera with source: {camera.source}")
+        # Initialize camera capture with retry mechanism
+        while retry_count < max_retries and not stop_threads:
+            try:
+                if camera.camera_type == 'webcam':
+                    cap = cv2.VideoCapture(int(camera.source))
+                    print(f"   Opening webcam with index: {camera.source}")
+                else:
+                    # For IP cameras, try different connection methods
+                    print(f"   Attempting to open IP camera (attempt {retry_count + 1}/{max_retries})")
+                    cap = cv2.VideoCapture(camera.source)
+                    
+                    # Set timeout and buffer properties for IP cameras
+                    cap.set(cv2.CAP_PROP_BUFFERSIZE, 1)
+                    cap.set(cv2.CAP_PROP_FPS, 10)
+                    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+                    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+                
+                if not cap.isOpened():
+                    print(f"❌ ERROR: Could not open camera {camera.name} (attempt {retry_count + 1})")
+                    retry_count += 1
+                    if retry_count < max_retries:
+                        print(f"🔄 Retrying in 5 seconds...")
+                        time.sleep(5)
+                        continue
+                    else:
+                        print(f"❌ FAILED: Could not open camera {camera.name} after {max_retries} attempts")
+                        # Try fallback to webcam if IP camera fails
+                        if camera.camera_type != 'webcam':
+                            print(f"🔄 FALLBACK: Trying webcam as fallback...")
+                            cap = cv2.VideoCapture(0)  # Try webcam as fallback
+                            if cap.isOpened():
+                                print(f"✅ FALLBACK SUCCESS: Using webcam for {camera.name}")
+                                break
+                        return
+                
+                # Test if we can read a frame
+                ret, test_frame = cap.read()
+                if not ret:
+                    print(f"❌ ERROR: Could not read initial frame from {camera.name} (attempt {retry_count + 1})")
+                    cap.release()
+                    retry_count += 1
+                    if retry_count < max_retries:
+                        print(f"🔄 Retrying in 5 seconds...")
+                        time.sleep(5)
+                        continue
+                    else:
+                        print(f"❌ FAILED: Could not read frame from {camera.name} after {max_retries} attempts")
+                        return
+                
+                print(f"✅ Successfully opened camera: {camera.name}")
+                print(f"   Frame size: {test_frame.shape}")
+                break
+                
+            except Exception as e:
+                print(f"❌ ERROR in camera initialization (attempt {retry_count + 1}): {str(e)}")
+                retry_count += 1
+                if retry_count < max_retries:
+                    print(f"🔄 Retrying in 5 seconds...")
+                    time.sleep(5)
+                    continue
+                else:
+                    print(f"❌ FAILED: Camera initialization failed after {max_retries} attempts")
+                    return
         
-        if not cap.isOpened():
-            print(f"Error: Could not open camera {camera.name}")
+        if cap is None or not cap.isOpened():
+            print(f"❌ CRITICAL: No camera available for {camera.name}")
             return
-        
-        print(f"Successfully opened camera: {camera.name}")
         
         # Initialize email flags for this camera
         if camera.id not in email_sent_flags:
             email_sent_flags[camera.id] = {}
         
-        # Load all missing person encodings
-        missing_persons = MissingPerson.objects.all()
-        known_face_encodings = []
-        known_face_names = []
-        
-        print(f"Loading {missing_persons.count()} missing persons for recognition")
-        
-        for person in missing_persons:
-            try:
-                image = face_recognition.load_image_file(person.image.path)
-                encodings = face_recognition.face_encodings(image)
-                if encodings:
-                    encoding = encodings[0]
-                    known_face_encodings.append(encoding)
-                    known_face_names.append(f"{person.first_name} {person.last_name}")
-                    print(f"Loaded encoding for: {person.first_name} {person.last_name}")
-                else:
-                    print(f"No face found in image for: {person.first_name} {person.last_name}")
-            except Exception as e:
-                print(f"Error loading image for {person.first_name}: {str(e)}")
-                continue
-        
-        print(f"Loaded {len(known_face_encodings)} face encodings")
-        
         frame_count = 0
-        # Main processing loop
+        consecutive_failures = 0
+        max_consecutive_failures = 10
+        
+        print(f"🔄 Starting detection loop for {camera.name}...")
+        
+        # Main processing loop - using EXACT same method as webcam detection
         while not stop_threads:
             ret, frame = cap.read()
             if not ret:
-                print(f"Error: Could not read frame from {camera.name}")
+                consecutive_failures += 1
+                print(f"⚠️  Could not read frame from {camera.name} (failure #{consecutive_failures})")
+                
+                if consecutive_failures >= max_consecutive_failures:
+                    print(f"❌ Too many consecutive failures ({consecutive_failures}), stopping camera {camera.name}")
+                    break
+                
                 time.sleep(2)
                 continue
             
+            # Reset failure counter on successful frame read
+            consecutive_failures = 0
             frame_count += 1
             
-            # Process every 5th frame to reduce CPU load
-            if frame_count % 5 != 0:
+            # Process every 10th frame to reduce CPU load
+            if frame_count % 10 != 0:
                 time.sleep(0.01)
                 continue
             
-            # Resize frame for faster processing
-            small_frame = cv2.resize(frame, (0, 0), fx=0.25, fy=0.25)
-            rgb_small_frame = small_frame[:, :, ::-1]  # BGR to RGB
+            if frame_count % 100 == 0:  # Log every 100 frames
+                print(f"📊 {camera.name}: Processed {frame_count} frames")
             
-            # Find all faces in the current frame
-            face_locations = face_recognition.face_locations(rgb_small_frame)
-            face_encodings = face_recognition.face_encodings(rgb_small_frame, face_locations)
-            
-            if face_locations:
-                print(f"Found {len(face_locations)} faces in frame from {camera.name}")
-            
-            face_names = []
-            for face_encoding in face_encodings:
-                # See if the face matches any known faces
-                matches = face_recognition.compare_faces(known_face_encodings, face_encoding)
-                name = "Unknown"
+            try:
+                # Find face locations and encodings in the current frame - SAME AS WEBCAM
+                face_locations = face_recognition.face_locations(frame)
+                face_encodings = face_recognition.face_encodings(frame, face_locations)
                 
-                # Use the known face with the smallest distance to the new face
-                if known_face_encodings:  # Check if list is not empty
-                    face_distances = face_recognition.face_distance(known_face_encodings, face_encoding)
-                    best_match_index = np.argmin(face_distances)
-                    if matches[best_match_index]:
-                        name = known_face_names[best_match_index]
+                if face_locations:
+                    print(f"👤 {camera.name}: Found {len(face_locations)} faces in frame {frame_count}")
                 
-                face_names.append(name)
-            
-            # Process the results
-            for (top, right, bottom, left), name in zip(face_locations, face_names):
-                # Scale back up face locations since the frame was scaled down
-                top *= 4
-                right *= 4
-                bottom *= 4
-                left *= 4
-                
-                if name != "Unknown":
-                    print(f"MATCH FOUND: {name} on camera: {camera.name}")
-                    print(f"Hi {name} is found on camera: {camera.name}")
+                for face_encoding, (top, right, bottom, left) in zip(face_encodings, face_locations):
+                    # Compare detected face with stored face images - SAME AS WEBCAM
+                    for person in MissingPerson.objects.all():
+                        try:
+                            stored_image = face_recognition.load_image_file(person.image.path)
+                            stored_face_encoding = face_recognition.face_encodings(stored_image)[0]
+
+                            # Compare face encodings using a tolerance value - SAME AS WEBCAM
+                            matches = face_recognition.compare_faces([stored_face_encoding], face_encoding)
+
+                            if any(matches):
+                                name = person.first_name + " " + person.last_name
+                                cv2.rectangle(frame, (left, bottom - 35), (right, bottom), (0, 0, 255), cv2.FILLED)
+                                font = cv2.FONT_HERSHEY_DUPLEX
+                                cv2.putText(frame, name, (left + 6, bottom - 6), font, 1.0, (255, 255, 255), 1)
+
+                                # Check if we've already sent a notification for this person on this camera
+                                if not email_sent_flags[camera.id].get(person.id, False):
+                                    print(f"🎉 MATCH FOUND: {name} on camera: {camera.name}")
+                                    print(f"📧 Sending email notification...")
+                                    
+                                    current_time = datetime.now().strftime('%d-%m-%Y %H:%M')
+                                    subject = 'Missing Person Found'
+                                    from_email = 'pptodo01@gmail.com'
+                                    recipientmail = person.email
+                                    
+                                    context = {
+                                        "first_name": person.first_name,
+                                        "last_name": person.last_name,
+                                        'fathers_name': person.father_name,
+                                        "aadhar_number": person.aadhar_number,
+                                        "missing_from": person.missing_from,
+                                        "date_time": current_time,
+                                        "location": camera.name  # Use camera name instead of "India"
+                                    }
+                                    
+                                    html_message = render_to_string('findemail.html', context=context)
+                                    send_mail(subject, '', from_email, [recipientmail], fail_silently=False, html_message=html_message)
+                                    
+                                    # Update the flag
+                                    email_sent_flags[camera.id][person.id] = True
+                                    
+                                    # Create a location record
+                                    Location.objects.create(
+                                        missing_person=person,
+                                        latitude=0,
+                                        longitude=0,
+                                        detected_at=timezone.now(),
+                                        camera=camera.name
+                                    )
+                                    
+                                    print(f"✅ Email sent successfully to {recipientmail} for {name} on {camera.name}")
+                                    break  # Break the loop once a match is found
+                        except Exception as e:
+                            print(f"❌ Error processing person {person.first_name} on {camera.name}: {str(e)}")
+                            continue
                     
-                    # Find the person in database
-                    try:
-                        first_name, last_name = name.split(' ', 1)
-                        person = MissingPerson.objects.get(
-                            first_name=first_name, 
-                            last_name=last_name
-                        )
+                    # Check if no face was detected in the current frame - SAME AS WEBCAM
+                    if not any(face_recognition.compare_faces([face_recognition.face_encodings(face_recognition.load_image_file(person.image.path))[0] for person in MissingPerson.objects.all() if face_recognition.face_encodings(face_recognition.load_image_file(person.image.path))], face_encoding)):
+                        name = "Unknown"
+                        cv2.rectangle(frame, (left, bottom - 35), (right, bottom), (0, 0, 255), cv2.FILLED)
+                        font = cv2.FONT_HERSHEY_DUPLEX
+                        cv2.putText(frame, name, (left + 6, bottom - 6), font, 1.0, (255, 255, 255), 1)
                         
-                        # Check if we've already sent a notification for this person on this camera
-                        if not email_sent_flags[camera.id].get(person.id, False):
-                            print(f"Sending email notification for: {name}")
-                            
-                            current_time = datetime.now().strftime('%d-%m-%Y %H:%M')
-                            subject = 'Missing Person Found'
-                            from_email = 'pptodo01@gmail.com'
-                            recipientmail = person.email
-                            
-                            context = {
-                                "first_name": person.first_name,
-                                "last_name": person.last_name,
-                                'fathers_name': person.father_name,
-                                "aadhar_number": person.aadhar_number,
-                                "missing_from": person.missing_from,
-                                "date_time": current_time,
-                                "location": camera.name
-                            }
-                            
-                            html_message = render_to_string('findemail.html', context=context)
-                            send_mail(subject, '', from_email, [recipientmail], 
-                                     fail_silently=False, html_message=html_message)
-                            
-                            # Update the flag
-                            email_sent_flags[camera.id][person.id] = True
-                            
-                            # Create a location record
-                            Location.objects.create(
-                                missing_person=person,
-                                latitude=0,
-                                longitude=0,
-                                detected_at=timezone.now(),
-                                camera=camera.name
-                            )
-                    except Exception as e:
-                        print(f"Error processing person {name}: {str(e)}")
+            except Exception as e:
+                print(f"❌ Error in face detection for {camera.name}: {str(e)}")
+                continue
             
             # Add a small delay to prevent overloading
             time.sleep(0.03)
             
-        cap.release()
-        print(f"Stopped processing camera: {camera.name}")
+        if cap:
+            cap.release()
+        print(f"🛑 Stopped processing camera: {camera.name}")
         
     except Exception as e:
-        print(f"Error processing camera {camera.name}: {str(e)}")
+        print(f"❌ CRITICAL ERROR processing camera {camera.name}: {str(e)}")
         import traceback
         print(traceback.format_exc())
+        if cap:
+            cap.release()
 
 def camera_list(request):
     cameras = Camera.objects.filter(is_active=True)
@@ -882,40 +930,108 @@ def delete_camera(request, camera_id):
 def start_multi_camera_detection(request):
     global camera_threads, stop_threads, email_sent_flags, detection_active
     
-    print("Starting multi-camera detection")
+    print("=" * 50)
+    print("STARTING MULTI-CAMERA DETECTION")
+    print("=" * 50)
     
     stop_threads = False
     email_sent_flags = {}  # Reset email flags
     detection_active = True
     
     cameras = Camera.objects.filter(is_active=True)
+    print(f"Found {cameras.count()} active cameras")
     
     if not cameras:
         messages.warning(request, 'No active cameras found. Please add cameras first.')
+        print("ERROR: No active cameras found!")
         return redirect('camera_list')
     
     # Stop any existing threads
+    print("Stopping existing threads...")
     for camera_id, thread in camera_threads.items():
         if thread.is_alive():
             stop_threads = True
             thread.join(timeout=2.0)
+            print(f"Stopped thread for camera ID: {camera_id}")
     
     camera_threads = {}
     stop_threads = False
     
-    # Start new threads for each camera
+    # Check if we have missing persons
+    missing_persons = MissingPerson.objects.all()
+    print(f"Found {missing_persons.count()} missing persons in database")
+    
+    if missing_persons.count() == 0:
+        messages.warning(request, 'No missing persons found. Please register some missing persons first.')
+        print("ERROR: No missing persons found!")
+        return redirect('camera_list')
+    
+    # Check if we have any working cameras by testing them first
+    working_cameras = []
     for camera in cameras:
+        print(f"Testing camera: {camera.name} (ID: {camera.id}, Type: {camera.camera_type}, Source: {camera.source})")
+        
+        # Quick test of camera connection
+        test_cap = None
+        try:
+            if camera.camera_type == 'webcam':
+                test_cap = cv2.VideoCapture(int(camera.source))
+            else:
+                test_cap = cv2.VideoCapture(camera.source)
+            
+            if test_cap.isOpened():
+                ret, test_frame = test_cap.read()
+                if ret:
+                    print(f"✅ Camera {camera.name} is working")
+                    working_cameras.append(camera)
+                else:
+                    print(f"❌ Camera {camera.name} cannot read frames")
+            else:
+                print(f"❌ Camera {camera.name} cannot be opened")
+        except Exception as e:
+            print(f"❌ Camera {camera.name} test failed: {str(e)}")
+        finally:
+            if test_cap:
+                test_cap.release()
+    
+    # If no cameras are working, add a webcam as fallback
+    if not working_cameras:
+        print("⚠️  No working cameras found. Adding webcam as fallback...")
+        try:
+            # Create a fallback webcam camera object
+            fallback_camera = type('Camera', (), {
+                'id': 999,
+                'name': 'Fallback Webcam',
+                'camera_type': 'webcam',
+                'source': '0'
+            })()
+            working_cameras.append(fallback_camera)
+            print("✅ Added fallback webcam")
+        except Exception as e:
+            print(f"❌ Failed to add fallback webcam: {str(e)}")
+    
+    # Start new threads for each working camera
+    print(f"Starting detection threads for {len(working_cameras)} working cameras...")
+    for camera in working_cameras:
+        print(f"Creating thread for camera: {camera.name} (ID: {camera.id}, Type: {camera.camera_type}, Source: {camera.source})")
+        
         thread = threading.Thread(
             target=camera_processor, 
             args=(camera,),
-            daemon=True
+            daemon=True,
+            name=f"Camera-{camera.id}-{camera.name}"
         )
         camera_threads[camera.id] = thread
         thread.start()
-        print(f"Started detection thread for camera: {camera.name} (ID: {camera.id})")
+        print(f"✓ Started detection thread for camera: {camera.name} (ID: {camera.id})")
+        
+        # Give thread a moment to start
+        time.sleep(0.5)
     
-    messages.success(request, f'Started detection on {len(cameras)} cameras')
-    print(f"Detection started on {len(cameras)} cameras")
+    print(f"✓ Detection started on {len(cameras)} cameras")
+    print("=" * 50)
+    
+    messages.success(request, f'Started detection on {len(cameras)} cameras with {missing_persons.count()} missing persons')
     return render(request, 'multi_camera_detection.html', {'cameras': cameras})
 
 def stop_multi_camera_detection(request):
@@ -1061,3 +1177,59 @@ def check_cameras(request):
             results.append(f"{camera.name}: Exception ({str(e)})")
     
     return HttpResponse("<br>".join(results))
+
+def reset_email_flags(request):
+    """Reset email flags for all cameras"""
+    global email_sent_flags
+    email_sent_flags = {}
+    messages.success(request, 'Email flags reset successfully')
+    return redirect('camera_list')
+
+def test_face_detection(request):
+    """Test face detection with a sample image"""
+    test_person = MissingPerson.objects.first()
+    if not test_person:
+        return HttpResponse("No test person available")
+    
+    try:
+        image = face_recognition.load_image_file(test_person.image.path)
+        encodings = face_recognition.face_encodings(image)
+        if encodings:
+            return HttpResponse(f"Face detection working! Found {len(encodings)} face(s) in {test_person.first_name}'s image")
+        else:
+            return HttpResponse("No face found in test image")
+    except Exception as e:
+        return HttpResponse(f"Error: {str(e)}")
+
+def debug_detection(request):
+    """Debug detection status"""
+    global camera_threads, email_sent_flags, detection_active
+    
+    active_threads = {cam_id: thread.is_alive() for cam_id, thread in camera_threads.items()}
+    missing_persons = MissingPerson.objects.count()
+    cameras = Camera.objects.filter(is_active=True)
+    
+    debug_info = {
+        'detection_active': detection_active,
+        'active_threads': active_threads,
+        'email_flags': email_sent_flags,
+        'missing_persons_count': missing_persons,
+        'cameras_count': cameras.count(),
+        'camera_details': [
+            {
+                'id': cam.id,
+                'name': cam.name,
+                'type': cam.camera_type,
+                'source': cam.source,
+                'thread_alive': camera_threads.get(cam.id, None).is_alive() if camera_threads.get(cam.id, None) else False
+            } for cam in cameras
+        ]
+    }
+    
+    print("🔍 DEBUG INFO:")
+    print(f"   Detection Active: {detection_active}")
+    print(f"   Active Threads: {active_threads}")
+    print(f"   Missing Persons: {missing_persons}")
+    print(f"   Cameras: {cameras.count()}")
+    
+    return JsonResponse(debug_info)
