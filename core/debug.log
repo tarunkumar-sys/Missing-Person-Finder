@@ -7767,3 +7767,1814 @@ Not Found: /camera-preview/23/
 "GET /surveillance/ HTTP/1.1" 200 3385
 "GET /detect/ HTTP/1.1" 200 3385
 Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 41660
+"GET /media/img/hero-img.png HTTP/1.1" 200 89173
+"GET /media/img/favicon.png HTTP/1.1" 200 491
+"GET /cameras/ HTTP/1.1" 200 15294
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /cameras/delete/26/ HTTP/1.1" 200 1369
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6388
+"POST /cameras/delete/26/ HTTP/1.1" 302 0
+"GET /cameras/ HTTP/1.1" 200 14539
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET / HTTP/1.1" 200 41660
+"GET / HTTP/1.1" 200 41660
+"GET /admin HTTP/1.1" 301 0
+"GET /admin/ HTTP/1.1" 302 0
+"GET /admin/login/?next=/admin/ HTTP/1.1" 200 4177
+"GET /static/admin/css/base.css HTTP/1.1" 200 22120
+"GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+"GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+"GET /static/admin/css/responsive.css HTTP/1.1" 200 16565
+"GET /static/admin/css/login.css HTTP/1.1" 200 951
+"GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+"GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+"POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+"GET /admin/ HTTP/1.1" 200 11972
+"GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+"GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+"GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+"GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+"GET /admin/missingperson/camera/ HTTP/1.1" 200 11182
+"GET /static/admin/css/changelists.css HTTP/1.1" 200 6878
+"GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+"GET /static/admin/js/core.js HTTP/1.1" 200 6208
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+"GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+"GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+"GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+"GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+"GET /static/admin/js/filters.js HTTP/1.1" 200 978
+"GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+"GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+"GET /all-cameras-preview/ HTTP/1.1" 200 2
+"POST /admin/missingperson/camera/ HTTP/1.1" 200 9706
+"GET /static/admin/js/cancel.js HTTP/1.1" 200 884
+"GET /all-cameras-preview/ HTTP/1.1" 200 150
+"POST /admin/missingperson/camera/ HTTP/1.1" 302 0
+"GET /admin/missingperson/camera/ HTTP/1.1" 200 9442
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+"GET /admin/missingperson/camera/ HTTP/1.1" 200 9305
+"GET /admin/missingperson/missingperson/ HTTP/1.1" 200 12102
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/ HTTP/1.1" 200 11846
+"GET /admin/ HTTP/1.1" 200 11846
+"GET / HTTP/1.1" 200 41660
+"GET / HTTP/1.1" 200 40832
+"GET /missing HTTP/1.1" 301 0
+"GET /missing/ HTTP/1.1" 200 13287
+"GET /media/missing_persons/R.jpg HTTP/1.1" 200 33878
+"GET /media/missing_persons/816756-robert-downey-jr-hd-wallpaper.jpg HTTP/1.1" 200 260557
+"GET /media/missing_persons/WhatsApp_Image_2025-09-13_at_13.19.53_904ce11c.jpg HTTP/1.1" 200 76891
+"GET /media/missing_persons/WhatsApp_Image_2025-09-13_at_13_yvO8iNR.19.53_904ce11c.jpg HTTP/1.1" 200 76891
+"GET /media/missing_persons/shaid.webp HTTP/1.1" 200 27624
+"GET /media/missing_persons/rick-harrison.jpg HTTP/1.1" 200 126550
+"GET /missing/ HTTP/1.1" 200 13287
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\USER\Desktop\Missing-Person-Detection-System\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\Missing-Person-Detection-System\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\Missing-Person-Detection-System\core\missingperson\views.py", line 492, in home
+    return render(request, "index.html")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\Missing-Person-Detection-System\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\Missing-Person-Detection-System\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\Missing-Person-Detection-System\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\Missing-Person-Detection-System\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\Missing-Person-Detection-System\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\Missing-Person-Detection-System\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\Missing-Person-Detection-System\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\Missing-Person-Detection-System\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\USER\Desktop\Missing-Person-Detection-System\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\Missing-Person-Detection-System\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\Missing-Person-Detection-System\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\USER\Desktop\Missing-Person-Detection-System\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\Missing-Person-Detection-System\venv\Lib\site-packages\django\template\defaulttags.py", line 576, in comment
+    parser.skip_past("endcomment")
+  File "C:\Users\USER\Desktop\Missing-Person-Detection-System\venv\Lib\site-packages\django\template\base.py", line 531, in skip_past
+    self.unclosed_block_tag([endtag])
+  File "C:\Users\USER\Desktop\Missing-Person-Detection-System\venv\Lib\site-packages\django\template\base.py", line 590, in unclosed_block_tag
+    raise self.error(token, msg)
+django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 1142: 'comment'. Looking for one of: endcomment.
+"GET / HTTP/1.1" 500 158784
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6388
+Watching for file changes with StatReloader
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\USER\Desktop\Missing-Person-Detection-System\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\Missing-Person-Detection-System\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\Missing-Person-Detection-System\core\missingperson\views.py", line 492, in home
+    return render(request, "index.html")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\Missing-Person-Detection-System\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\Missing-Person-Detection-System\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\Missing-Person-Detection-System\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\Missing-Person-Detection-System\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\Missing-Person-Detection-System\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\Missing-Person-Detection-System\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\Missing-Person-Detection-System\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\Missing-Person-Detection-System\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\USER\Desktop\Missing-Person-Detection-System\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\Missing-Person-Detection-System\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\Missing-Person-Detection-System\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\USER\Desktop\Missing-Person-Detection-System\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\Missing-Person-Detection-System\venv\Lib\site-packages\django\template\defaulttags.py", line 576, in comment
+    parser.skip_past("endcomment")
+  File "C:\Users\USER\Desktop\Missing-Person-Detection-System\venv\Lib\site-packages\django\template\base.py", line 531, in skip_past
+    self.unclosed_block_tag([endtag])
+  File "C:\Users\USER\Desktop\Missing-Person-Detection-System\venv\Lib\site-packages\django\template\base.py", line 590, in unclosed_block_tag
+    raise self.error(token, msg)
+django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 1146: 'comment'. Looking for one of: endcomment.
+"GET / HTTP/1.1" 500 158411
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6388
+"GET / HTTP/1.1" 200 40876
+"GET /media/img/hero-img.png HTTP/1.1" 200 89173
+"GET /media/img/favicon.png HTTP/1.1" 200 491
+"GET /missing HTTP/1.1" 301 0
+"GET /missing/ HTTP/1.1" 200 13287
+"GET /media/missing_persons/816756-robert-downey-jr-hd-wallpaper.jpg HTTP/1.1" 200 260557
+"GET /media/missing_persons/R.jpg HTTP/1.1" 200 33878
+"GET /media/missing_persons/shaid.webp HTTP/1.1" 200 27624
+"GET /media/missing_persons/WhatsApp_Image_2025-09-13_at_13.19.53_904ce11c.jpg HTTP/1.1" 200 76891
+"GET /media/missing_persons/rick-harrison.jpg HTTP/1.1" 200 126550
+"GET /media/missing_persons/WhatsApp_Image_2025-09-13_at_13_yvO8iNR.19.53_904ce11c.jpg HTTP/1.1" 200 76891
+"GET /register HTTP/1.1" 301 0
+"GET /register/ HTTP/1.1" 200 14200
+"GET / HTTP/1.1" 200 40876
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 34049
+"GET /media/img/hero-img.png HTTP/1.1" 200 89173
+"GET /media/img/favicon.png HTTP/1.1" 200 491
+"GET /missing HTTP/1.1" 301 0
+"GET /missing/ HTTP/1.1" 200 13287
+"GET /media/missing_persons/816756-robert-downey-jr-hd-wallpaper.jpg HTTP/1.1" 200 260557
+"GET /media/missing_persons/R.jpg HTTP/1.1" 200 33878
+"GET /media/missing_persons/shaid.webp HTTP/1.1" 200 27624
+"GET /media/missing_persons/rick-harrison.jpg HTTP/1.1" 200 126550
+"GET /media/missing_persons/WhatsApp_Image_2025-09-13_at_13.19.53_904ce11c.jpg HTTP/1.1" 200 76891
+"GET /media/missing_persons/WhatsApp_Image_2025-09-13_at_13_yvO8iNR.19.53_904ce11c.jpg HTTP/1.1" 200 76891
+"GET /cameras/ HTTP/1.1" 200 14299
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 2
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 2
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 2
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 2
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 2
+"GET /cameras/add/ HTTP/1.1" 200 3169
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6388
+"GET /cameras/add/ HTTP/1.1" 200 3169
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 2
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /cameras/ HTTP/1.1" 200 14299
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 2
+"GET /cameras/add/ HTTP/1.1" 200 3169
+"POST /cameras/add/ HTTP/1.1" 302 0
+"GET /cameras/ HTTP/1.1" 200 15614
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 138
+"GET /camera-preview/27/ HTTP/1.1" 200 35091
+"GET /camera-preview/27/?t=1761531920073 HTTP/1.1" 200 84027
+"GET /camera-preview/27/?t=1761531922071 HTTP/1.1" 200 163412
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/27/?t=1761531924073 HTTP/1.1" 200 283491
+"GET /camera-preview/27/?t=1761531926084 HTTP/1.1" 200 280874
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/27/?t=1761531928080 HTTP/1.1" 200 194333
+"GET /camera-preview/27/?t=1761531930073 HTTP/1.1" 200 265500
+"GET /camera-preview/27/?t=1761531932072 HTTP/1.1" 200 266304
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/27/?t=1761531934079 HTTP/1.1" 200 266874
+"GET /camera-preview/27/?t=1761531936080 HTTP/1.1" 200 266629
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/27/?t=1761531938080 HTTP/1.1" 200 266099
+"GET /camera-preview/27/?t=1761531940083 HTTP/1.1" 200 265305
+"GET /camera-preview/27/?t=1761531942075 HTTP/1.1" 200 265128
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/27/?t=1761531944070 HTTP/1.1" 200 265431
+"GET /camera-preview/27/?t=1761531946073 HTTP/1.1" 200 267066
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 138
+"GET /camera-preview/27/?t=1761531949701 HTTP/1.1" 200 265488
+"GET /camera-preview/27/?t=1761531951706 HTTP/1.1" 200 264282
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/27/?t=1761531954670 HTTP/1.1" 200 264582
+"GET /camera-preview/27/?t=1761531955712 HTTP/1.1" 200 265162
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/27/?t=1761531957711 HTTP/1.1" 200 264733
+"GET /camera-preview/27/?t=1761531959707 HTTP/1.1" 200 265203
+"GET /camera-preview/27/?t=1761531961707 HTTP/1.1" 200 265585
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /surveillance HTTP/1.1" 301 0
+"GET /surveillance/ HTTP/1.1" 200 3385
+"GET /detect/ HTTP/1.1" 200 3385
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/27/?t=1761532013415 HTTP/1.1" 200 265560
+"GET /all-cameras-preview/ HTTP/1.1" 200 138
+"GET /camera-preview/27/?t=1761532013707 HTTP/1.1" 200 265308
+"GET /camera-preview/27/ HTTP/1.1" 200 265458
+"GET /camera-preview/27/?t=1761532015804 HTTP/1.1" 200 265368
+"GET /cameras/delete/27/ HTTP/1.1" 200 1369
+"POST /cameras/delete/27/ HTTP/1.1" 302 0
+"GET /cameras/ HTTP/1.1" 200 14539
+"GET /all-cameras-preview/ HTTP/1.1" 200 2
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+Not Found: /locations
+"GET /locations HTTP/1.1" 404 6382
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET / HTTP/1.1" 200 34049
+"GET /register HTTP/1.1" 301 0
+"GET /register/ HTTP/1.1" 200 14200
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 34049
+"GET /media/img/hero-img.png HTTP/1.1" 200 89173
+"GET /media/img/favicon.png HTTP/1.1" 200 491
+"GET / HTTP/1.1" 200 34049
+"GET / HTTP/1.1" 200 34049
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 34049
+"GET /media/img/hero-img.png HTTP/1.1" 200 89173
+"GET /media/img/favicon.png HTTP/1.1" 200 491
+"GET /surveillance HTTP/1.1" 301 0
+"GET /surveillance/ HTTP/1.1" 200 3385
+"GET /admin HTTP/1.1" 301 0
+"GET /admin/ HTTP/1.1" 302 0
+"GET /admin/login/?next=/admin/ HTTP/1.1" 200 4177
+"GET /static/admin/css/base.css HTTP/1.1" 200 22120
+"GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+"GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+"GET /static/admin/css/login.css HTTP/1.1" 200 951
+"GET /static/admin/css/responsive.css HTTP/1.1" 200 16565
+"GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+"GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6388
+"POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+"GET /admin/ HTTP/1.1" 200 11846
+"GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+"GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+"GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+"GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+"GET /admin/auth/user/ HTTP/1.1" 200 13202
+"GET /static/admin/css/changelists.css HTTP/1.1" 200 6878
+"GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+"GET /static/admin/js/core.js HTTP/1.1" 200 6208
+"GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+"GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+"GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+"GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+"GET /static/admin/img/search.svg HTTP/1.1" 200 458
+"GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+"GET /static/admin/js/filters.js HTTP/1.1" 200 978
+"GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+"GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+"GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+"GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+"GET /admin/ HTTP/1.1" 200 11846
+"GET /admin/missingperson/location/ HTTP/1.1" 200 11238
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /admin/missingperson/location/3/change/ HTTP/1.1" 200 14809
+"GET /static/admin/css/forms.css HTTP/1.1" 200 8525
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/css/widgets.css HTTP/1.1" 200 11991
+"GET /static/admin/js/calendar.js HTTP/1.1" 200 9141
+"GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+"GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+"GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+"GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1086
+"GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 677
+"GET /admin/missingperson/location/ HTTP/1.1" 200 11238
+"GET /admin/ HTTP/1.1" 200 11846
+"GET /admin/login/?next=/admin/ HTTP/1.1" 302 0
+"GET /admin/ HTTP/1.1" 200 11846
+Not Found: /location
+"GET /location HTTP/1.1" 404 6379
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 34049
+"GET /surveillance/ HTTP/1.1" 200 3385
+"GET /register HTTP/1.1" 301 0
+"GET /register/ HTTP/1.1" 200 14200
+"GET /cameras/ HTTP/1.1" 200 14299
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 2
+"GET /cameras/add/ HTTP/1.1" 200 3169
+"POST /cameras/add/ HTTP/1.1" 302 0
+"GET /cameras/ HTTP/1.1" 200 15526
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 137
+"GET /camera-preview/28/ HTTP/1.1" 200 155705
+"GET /camera-preview/28/?t=1763451968188 HTTP/1.1" 200 120104
+"GET /camera-preview/28/?t=1763451970195 HTTP/1.1" 200 136888
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763451972190 HTTP/1.1" 200 269168
+"GET /camera-preview/28/?t=1763451974179 HTTP/1.1" 200 217084
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763451976191 HTTP/1.1" 200 228527
+"GET /camera-preview/28/?t=1763451978187 HTTP/1.1" 200 177114
+"GET /camera-preview/28/?t=1763451980180 HTTP/1.1" 200 214769
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763451982180 HTTP/1.1" 200 210290
+"GET /camera-preview/28/?t=1763451984181 HTTP/1.1" 200 232108
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763451986185 HTTP/1.1" 200 190561
+"GET /camera-preview/28/?t=1763451988184 HTTP/1.1" 200 212259
+"GET /camera-preview/28/?t=1763451990185 HTTP/1.1" 200 181487
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763451992180 HTTP/1.1" 200 217051
+"GET /camera-preview/28/?t=1763451994191 HTTP/1.1" 200 271322
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 137
+"GET /camera-preview/28/ HTTP/1.1" 200 196866
+"GET /camera-preview/28/?t=1763451997865 HTTP/1.1" 200 286689
+"GET /camera-preview/28/?t=1763451999874 HTTP/1.1" 200 256085
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763452001865 HTTP/1.1" 200 227273
+"GET /missing HTTP/1.1" 301 0
+"GET /missing/ HTTP/1.1" 200 13287
+"GET /media/missing_persons/WhatsApp_Image_2025-09-13_at_13_yvO8iNR.19.53_904ce11c.jpg HTTP/1.1" 200 76891
+"GET /media/missing_persons/shaid.webp HTTP/1.1" 200 27624
+"GET /media/missing_persons/rick-harrison.jpg HTTP/1.1" 200 126550
+"GET /media/missing_persons/R.jpg HTTP/1.1" 200 33878
+"GET /media/missing_persons/WhatsApp_Image_2025-09-13_at_13.19.53_904ce11c.jpg HTTP/1.1" 200 76891
+"GET /media/missing_persons/816756-robert-downey-jr-hd-wallpaper.jpg HTTP/1.1" 200 260557
+"GET / HTTP/1.1" 200 34049
+"GET /register/ HTTP/1.1" 200 14200
+"POST /register/ HTTP/1.1" 302 0
+"GET /register HTTP/1.1" 301 0
+"GET /register/ HTTP/1.1" 200 14320
+"GET /missing/ HTTP/1.1" 200 13287
+"GET /cameras/ HTTP/1.1" 200 15288
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 137
+"GET /camera-preview/28/ HTTP/1.1" 200 207899
+"GET /camera-preview/28/?t=1763452103155 HTTP/1.1" 200 195502
+"GET /camera-preview/28/?t=1763452105152 HTTP/1.1" 200 150808
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763452107148 HTTP/1.1" 200 160844
+"GET /camera-preview/28/?t=1763452109149 HTTP/1.1" 200 113294
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763452111149 HTTP/1.1" 200 157378
+"GET /camera-preview/28/?t=1763452113157 HTTP/1.1" 200 196916
+"GET /camera-preview/28/?t=1763452115154 HTTP/1.1" 200 175916
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763452117159 HTTP/1.1" 200 198305
+"GET /camera-preview/28/?t=1763452119151 HTTP/1.1" 200 230656
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763452121156 HTTP/1.1" 200 177311
+"GET /camera-preview/28/?t=1763452123153 HTTP/1.1" 200 187649
+"GET /camera-preview/28/?t=1763452125157 HTTP/1.1" 200 190923
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763452127151 HTTP/1.1" 200 192639
+"GET /camera-preview/28/?t=1763452129159 HTTP/1.1" 200 172256
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 137
+"GET /camera-preview/28/ HTTP/1.1" 200 172283
+"GET /camera-preview/28/?t=1763452133149 HTTP/1.1" 200 218991
+"GET /camera-preview/28/?t=1763452135150 HTTP/1.1" 200 207949
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763452137141 HTTP/1.1" 200 129939
+"GET /camera-preview/28/?t=1763452139146 HTTP/1.1" 200 197228
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763452141142 HTTP/1.1" 200 158514
+"GET /camera-preview/28/?t=1763452143147 HTTP/1.1" 200 166678
+"GET /camera-preview/28/?t=1763452145146 HTTP/1.1" 200 107575
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763452147138 HTTP/1.1" 200 125271
+"GET /camera-preview/28/?t=1763452149151 HTTP/1.1" 200 174252
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763452151151 HTTP/1.1" 200 161122
+"GET /camera-preview/28/?t=1763452153144 HTTP/1.1" 200 156156
+"GET /camera-preview/28/?t=1763452155153 HTTP/1.1" 200 158398
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763452157147 HTTP/1.1" 200 132389
+"GET /camera-preview/28/?t=1763452159138 HTTP/1.1" 200 135557
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 137
+"GET /camera-preview/28/?t=1763452163101 HTTP/1.1" 200 172529
+"GET /camera-preview/28/?t=1763452165108 HTTP/1.1" 200 174624
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763452167116 HTTP/1.1" 200 181307
+"GET /camera-preview/28/?t=1763452169106 HTTP/1.1" 200 167484
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763452171112 HTTP/1.1" 200 141604
+"GET /camera-preview/28/?t=1763452173108 HTTP/1.1" 200 145845
+"GET /camera-preview/28/?t=1763452175106 HTTP/1.1" 200 152971
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /surveillance/ HTTP/1.1" 200 3385
+- Broken pipe from ('127.0.0.1', 55626)
+"GET /detect/ HTTP/1.1" 200 3385
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 34049
+"GET /missing/ HTTP/1.1" 200 13287
+"GET /cameras/ HTTP/1.1" 200 15288
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 137
+"GET /camera-preview/28/ HTTP/1.1" 200 178607
+"GET /camera-preview/28/?t=1763452886948 HTTP/1.1" 200 148962
+"GET /camera-preview/28/?t=1763452888940 HTTP/1.1" 200 154752
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763452890940 HTTP/1.1" 200 246862
+"GET /camera-preview/28/?t=1763452892933 HTTP/1.1" 200 243720
+"GET /missing/ HTTP/1.1" 200 13287
+"GET /cameras/ HTTP/1.1" 200 15288
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 137
+"GET /camera-preview/28/ HTTP/1.1" 200 249205
+"GET /camera-preview/28/?t=1763452897517 HTTP/1.1" 200 151461
+"GET /camera-preview/28/?t=1763452899516 HTTP/1.1" 200 170864
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763452901525 HTTP/1.1" 200 198351
+"GET /camera-preview/28/?t=1763452903974 HTTP/1.1" 200 209550
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763452905528 HTTP/1.1" 200 180931
+"GET /camera-preview/28/?t=1763452907530 HTTP/1.1" 200 233091
+"GET /camera-preview/28/?t=1763452909531 HTTP/1.1" 200 297082
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763452911526 HTTP/1.1" 200 286899
+"GET /camera-preview/28/?t=1763452913531 HTTP/1.1" 200 273669
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763452915526 HTTP/1.1" 200 292591
+"GET /camera-preview/28/?t=1763452917528 HTTP/1.1" 200 293761
+"GET /camera-preview/28/?t=1763452919516 HTTP/1.1" 200 205814
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763452921521 HTTP/1.1" 200 313135
+"GET /camera-preview/28/?t=1763452923527 HTTP/1.1" 200 370535
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 137
+"GET /camera-preview/28/?t=1763452925526 HTTP/1.1" 200 343532
+"GET /camera-preview/28/?t=1763452927621 HTTP/1.1" 200 145810
+"GET /camera-preview/28/?t=1763452929619 HTTP/1.1" 200 229122
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763452931619 HTTP/1.1" 200 109033
+"GET /camera-preview/28/?t=1763452933616 HTTP/1.1" 200 176355
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763452935615 HTTP/1.1" 200 76988
+"GET /camera-preview/28/?t=1763452937624 HTTP/1.1" 200 118651
+"GET /camera-preview/28/?t=1763452939620 HTTP/1.1" 200 107077
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763452941622 HTTP/1.1" 200 108145
+"GET /camera-preview/28/?t=1763452943614 HTTP/1.1" 200 148515
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763452945611 HTTP/1.1" 200 153796
+"GET /camera-preview/28/?t=1763452947615 HTTP/1.1" 200 169355
+"GET /camera-preview/28/?t=1763452949623 HTTP/1.1" 200 186044
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763452951615 HTTP/1.1" 200 194895
+"GET /camera-preview/28/?t=1763452953614 HTTP/1.1" 200 130304
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 137
+"GET /camera-preview/28/?t=1763452955621 HTTP/1.1" 200 147235
+"GET /camera-preview/28/?t=1763452957688 HTTP/1.1" 200 217767
+"GET /camera-preview/28/?t=1763452959686 HTTP/1.1" 200 163610
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763452961681 HTTP/1.1" 200 89503
+"GET /camera-preview/28/?t=1763452963685 HTTP/1.1" 200 84714
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763452965692 HTTP/1.1" 200 146750
+"GET /camera-preview/28/?t=1763452967691 HTTP/1.1" 200 180815
+"GET /camera-preview/28/?t=1763452969685 HTTP/1.1" 200 124264
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763452971688 HTTP/1.1" 200 112103
+"GET /camera-preview/28/?t=1763452973692 HTTP/1.1" 200 131225
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763452975684 HTTP/1.1" 200 132168
+"GET /camera-preview/28/?t=1763452977694 HTTP/1.1" 200 125497
+"GET /camera-preview/28/?t=1763452979695 HTTP/1.1" 200 114761
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763452981693 HTTP/1.1" 200 118754
+"GET /camera-preview/28/?t=1763452983691 HTTP/1.1" 200 123512
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 137
+"GET /camera-preview/28/ HTTP/1.1" 200 132082
+"GET /camera-preview/28/?t=1763452987507 HTTP/1.1" 200 147076
+"GET /camera-preview/28/?t=1763452989496 HTTP/1.1" 200 152845
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763452991503 HTTP/1.1" 200 133348
+"GET /camera-preview/28/?t=1763452993496 HTTP/1.1" 200 168964
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763452995506 HTTP/1.1" 200 160964
+"GET /camera-preview/28/?t=1763452997501 HTTP/1.1" 200 180145
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+Not Found: /camera-preview/28/
+- Broken pipe from ('127.0.0.1', 53278)
+"GET /detection-status/ HTTP/1.1" 200 64
+Not Found: /camera-preview/28/
+- Broken pipe from ('127.0.0.1', 53279)
+"GET /detection-status/ HTTP/1.1" 200 64
+Not Found: /camera-preview/28/
+- Broken pipe from ('127.0.0.1', 53348)
+"GET /detection-status/ HTTP/1.1" 200 64
+Not Found: /camera-preview/28/
+- Broken pipe from ('127.0.0.1', 53352)
+"GET /detection-status/ HTTP/1.1" 200 64
+Not Found: /camera-preview/28/
+- Broken pipe from ('127.0.0.1', 53350)
+- Broken pipe from ('127.0.0.1', 53357)
+- Broken pipe from ('127.0.0.1', 53359)
+- Broken pipe from ('127.0.0.1', 53361)
+- Broken pipe from ('127.0.0.1', 53364)
+- Broken pipe from ('127.0.0.1', 53367)
+"GET /all-cameras-preview/ HTTP/1.1" 200 137
+- Broken pipe from ('127.0.0.1', 53353)
+- Broken pipe from ('127.0.0.1', 53354)
+"GET /camera-preview/28/?t=1763453027501 HTTP/1.1" 200 159571
+- Broken pipe from ('127.0.0.1', 53368)
+- Broken pipe from ('127.0.0.1', 53363)
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763453031425 HTTP/1.1" 200 146372
+"GET /camera-preview/28/?t=1763453033424 HTTP/1.1" 200 174884
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763453035423 HTTP/1.1" 200 90106
+"GET /camera-preview/28/?t=1763453037416 HTTP/1.1" 200 135061
+"GET /camera-preview/28/?t=1763453039417 HTTP/1.1" 200 170236
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763453041424 HTTP/1.1" 200 153741
+"GET /camera-preview/28/?t=1763453043420 HTTP/1.1" 200 143849
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 137
+"GET /camera-preview/28/?t=1763453045424 HTTP/1.1" 200 146904
+"GET /camera-preview/28/?t=1763453047519 HTTP/1.1" 200 193956
+"GET /camera-preview/28/?t=1763453049516 HTTP/1.1" 200 201389
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763453051512 HTTP/1.1" 200 243072
+"GET /camera-preview/28/?t=1763453053509 HTTP/1.1" 200 203518
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763453055510 HTTP/1.1" 200 192692
+"GET /camera-preview/28/?t=1763453057518 HTTP/1.1" 200 176505
+"GET /camera-preview/28/?t=1763453059510 HTTP/1.1" 200 224643
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763453061508 HTTP/1.1" 200 118849
+"GET /camera-preview/28/?t=1763453064219 HTTP/1.1" 200 213462
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763453065894 HTTP/1.1" 200 163180
+"GET /camera-preview/28/?t=1763453067513 HTTP/1.1" 200 144680
+"GET /camera-preview/28/?t=1763453069511 HTTP/1.1" 200 130605
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763453071507 HTTP/1.1" 200 115053
+"GET /camera-preview/28/?t=1763453073510 HTTP/1.1" 200 129118
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 137
+"GET /camera-preview/28/?t=1763453075508 HTTP/1.1" 200 134376
+"GET /camera-preview/28/?t=1763453077595 HTTP/1.1" 200 134462
+"GET /camera-preview/28/?t=1763453079601 HTTP/1.1" 200 200748
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763453081593 HTTP/1.1" 200 212543
+"GET /camera-preview/28/?t=1763453083590 HTTP/1.1" 200 194503
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763453085600 HTTP/1.1" 200 216267
+"GET /camera-preview/28/?t=1763453087592 HTTP/1.1" 200 320575
+"GET /camera-preview/28/?t=1763453089603 HTTP/1.1" 200 177963
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763453091596 HTTP/1.1" 200 304732
+"GET /camera-preview/28/?t=1763453093597 HTTP/1.1" 200 212273
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763453095595 HTTP/1.1" 200 223052
+"GET /camera-preview/28/?t=1763453097590 HTTP/1.1" 200 244791
+"GET /camera-preview/28/?t=1763453099597 HTTP/1.1" 200 198114
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763453101591 HTTP/1.1" 200 221370
+"GET /camera-preview/28/?t=1763453103597 HTTP/1.1" 200 193808
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 137
+"GET /camera-preview/28/ HTTP/1.1" 200 166333
+"GET /camera-preview/28/?t=1763453107518 HTTP/1.1" 200 227745
+"GET /camera-preview/28/?t=1763453109529 HTTP/1.1" 200 186329
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763453111525 HTTP/1.1" 200 133344
+"GET /camera-preview/28/?t=1763453113531 HTTP/1.1" 200 152228
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763453115523 HTTP/1.1" 200 150001
+"GET /camera-preview/28/?t=1763453117528 HTTP/1.1" 200 89343
+"GET /camera-preview/28/?t=1763453119519 HTTP/1.1" 200 155549
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763453121526 HTTP/1.1" 200 155768
+"GET /camera-preview/28/?t=1763453123520 HTTP/1.1" 200 155157
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763453125530 HTTP/1.1" 200 153641
+"GET /camera-preview/28/?t=1763453127528 HTTP/1.1" 200 155236
+"GET /camera-preview/28/?t=1763453129523 HTTP/1.1" 200 155749
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763453131522 HTTP/1.1" 200 155839
+"GET /camera-preview/28/?t=1763453133518 HTTP/1.1" 200 154729
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 137
+"GET /camera-preview/28/?t=1763453135528 HTTP/1.1" 200 153837
+"GET /camera-preview/28/?t=1763453137554 HTTP/1.1" 200 155883
+"GET /camera-preview/28/?t=1763453139553 HTTP/1.1" 200 153135
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763453141554 HTTP/1.1" 200 152929
+"GET /camera-preview/28/?t=1763453143563 HTTP/1.1" 200 147374
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763453145565 HTTP/1.1" 200 144697
+"GET /camera-preview/28/?t=1763453147562 HTTP/1.1" 200 168427
+"GET /camera-preview/28/?t=1763453149555 HTTP/1.1" 200 169012
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763453151561 HTTP/1.1" 200 165605
+"GET /camera-preview/28/?t=1763453153568 HTTP/1.1" 200 166820
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763453155567 HTTP/1.1" 200 164476
+"GET /camera-preview/28/?t=1763453157563 HTTP/1.1" 200 126581
+"GET /camera-preview/28/?t=1763453159563 HTTP/1.1" 200 123607
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763453161555 HTTP/1.1" 200 134075
+"GET /camera-preview/28/?t=1763453163569 HTTP/1.1" 200 154004
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 137
+"GET /camera-preview/28/?t=1763453165553 HTTP/1.1" 200 158931
+"GET /camera-preview/28/?t=1763453167592 HTTP/1.1" 200 157895
+"GET /camera-preview/28/?t=1763453169586 HTTP/1.1" 200 158397
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763453172212 HTTP/1.1" 200 157724
+"GET /camera-preview/28/?t=1763453174213 HTTP/1.1" 200 157119
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763453175591 HTTP/1.1" 200 150683
+"GET /camera-preview/28/?t=1763453177582 HTTP/1.1" 200 146308
+"GET /camera-preview/28/?t=1763453179580 HTTP/1.1" 200 144330
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763453181590 HTTP/1.1" 200 145242
+"GET /camera-preview/28/?t=1763453183578 HTTP/1.1" 200 149128
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763453185592 HTTP/1.1" 200 150410
+"GET /camera-preview/28/?t=1763453187580 HTTP/1.1" 200 169516
+"GET /camera-preview/28/?t=1763453189580 HTTP/1.1" 200 147776
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763453191587 HTTP/1.1" 200 133986
+"GET /camera-preview/28/?t=1763453193593 HTTP/1.1" 200 158172
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 137
+"GET /camera-preview/28/?t=1763453197463 HTTP/1.1" 200 159152
+"GET /camera-preview/28/?t=1763453199456 HTTP/1.1" 200 161546
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/28/?t=1763453201463 HTTP/1.1" 200 167237
+"GET /camera-preview/28/?t=1763453203465 HTTP/1.1" 200 150341
+"GET /detection-status/ HTTP/1.1" 200 64
+Not Found: /camera-preview/28/
+- Broken pipe from ('127.0.0.1', 53370)
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+Not Found: /camera-preview/28/
+- Broken pipe from ('127.0.0.1', 53358)
+"GET /detection-status/ HTTP/1.1" 200 64
+Not Found: /camera-preview/28/
+- Broken pipe from ('127.0.0.1', 53494)
+"GET /detection-status/ HTTP/1.1" 200 64
+Not Found: /camera-preview/28/
+- Broken pipe from ('127.0.0.1', 53495)
+"GET /multi-camera/stop/ HTTP/1.1" 302 0
+"GET /cameras/ HTTP/1.1" 200 15529
+"GET /detection-status/ HTTP/1.1" 200 64
+Not Found: /camera-preview/28/
+- Broken pipe from ('127.0.0.1', 53499)
+"GET /cameras/delete/28/ HTTP/1.1" 200 1368
+"POST /cameras/delete/28/ HTTP/1.1" 302 0
+"GET /cameras/ HTTP/1.1" 200 14539
+"GET /detection-status/ HTTP/1.1" 200 64
+Not Found: /camera-preview/28/
+- Broken pipe from ('127.0.0.1', 53497)
+"GET /detection-status/ HTTP/1.1" 200 64
+Not Found: /camera-preview/28/
+- Broken pipe from ('127.0.0.1', 53504)
+"GET /detection-status/ HTTP/1.1" 200 64
+Not Found: /camera-preview/28/
+- Broken pipe from ('127.0.0.1', 53500)
+"GET /detection-status/ HTTP/1.1" 200 64
+Not Found: /camera-preview/28/
+- Broken pipe from ('127.0.0.1', 53510)
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 2
+Not Found: /camera-preview/28/
+- Broken pipe from ('127.0.0.1', 53511)
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 144
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 2
+"GET /detection-status/ HTTP/1.1" 200 64
+- Broken pipe from ('127.0.0.1', 53509)
+"GET /detection-status/ HTTP/1.1" 200 64
+Not Found: /camera-preview/28/
+- Broken pipe from ('127.0.0.1', 53502)
+"GET /detection-status/ HTTP/1.1" 200 64
+Not Found: /camera-preview/28/
+- Broken pipe from ('127.0.0.1', 53508)
+"GET /detection-status/ HTTP/1.1" 200 64
+Not Found: /camera-preview/28/
+- Broken pipe from ('127.0.0.1', 53505)
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 2
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 2
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 2
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 2
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 2
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 2
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 2
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 2
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 2
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 2
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 2
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 2
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 34049
+"GET /media/img/hero-img.png HTTP/1.1" 200 89173
+"GET /media/img/favicon.png HTTP/1.1" 200 491
+"GET /missing HTTP/1.1" 301 0
+"GET /missing/ HTTP/1.1" 200 13287
+"GET /media/missing_persons/816756-robert-downey-jr-hd-wallpaper.jpg HTTP/1.1" 200 260557
+"GET /media/missing_persons/R.jpg HTTP/1.1" 200 33878
+"GET /media/missing_persons/WhatsApp_Image_2025-09-13_at_13_yvO8iNR.19.53_904ce11c.jpg HTTP/1.1" 200 76891
+"GET /media/missing_persons/WhatsApp_Image_2025-09-13_at_13.19.53_904ce11c.jpg HTTP/1.1" 200 76891
+"GET /media/missing_persons/shaid.webp HTTP/1.1" 200 27624
+"GET /media/missing_persons/rick-harrison.jpg HTTP/1.1" 200 126550
+Not Found: /location
+"GET /location HTTP/1.1" 404 6379
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6388
+"GET /cameras/ HTTP/1.1" 200 14299
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 2
+"GET /register HTTP/1.1" 301 0
+"GET /register/ HTTP/1.1" 200 14200
+"GET /surveillance HTTP/1.1" 301 0
+"GET /surveillance/ HTTP/1.1" 200 3385
+Watching for file changes with StatReloader
+Not Found: /media/image/favicon.png
+"GET /media/image/favicon.png HTTP/1.1" 404 6676
+- Broken pipe from ('127.0.0.1', 60777)
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 34049
+"GET /media/img/hero-img.png HTTP/1.1" 200 89173
+"GET /media/img/favicon.png HTTP/1.1" 200 491
+"GET /register HTTP/1.1" 301 0
+"GET /register/ HTTP/1.1" 200 14200
+"GET /missing HTTP/1.1" 301 0
+"GET /missing/ HTTP/1.1" 200 13287
+"GET /media/missing_persons/816756-robert-downey-jr-hd-wallpaper.jpg HTTP/1.1" 200 260557
+"GET /media/missing_persons/R.jpg HTTP/1.1" 200 33878
+"GET /media/missing_persons/shaid.webp HTTP/1.1" 200 27624
+"GET /media/missing_persons/rick-harrison.jpg HTTP/1.1" 200 126550
+"GET /media/missing_persons/WhatsApp_Image_2025-09-13_at_13_yvO8iNR.19.53_904ce11c.jpg HTTP/1.1" 200 76891
+"GET /media/missing_persons/WhatsApp_Image_2025-09-13_at_13.19.53_904ce11c.jpg HTTP/1.1" 200 76891
+"GET /cameras/ HTTP/1.1" 200 14299
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 2
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 34049
+"GET /media/img/hero-img.png HTTP/1.1" 200 89173
+"GET /media/img/favicon.png HTTP/1.1" 200 491
+"GET /register HTTP/1.1" 301 0
+"GET /register/ HTTP/1.1" 200 14200
+"GET /surveillance HTTP/1.1" 301 0
+"GET /surveillance/ HTTP/1.1" 200 3385
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 34049
+"GET /media/img/hero-img.png HTTP/1.1" 200 89173
+"GET / HTTP/1.1" 200 34049
+"GET /media/img/hero-img.png HTTP/1.1" 200 89173
+"GET /media/img/favicon.png HTTP/1.1" 200 491
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 34049
+"GET /media/img/hero-img.png HTTP/1.1" 200 89173
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 34049
+"GET /media/img/hero-img.png HTTP/1.1" 200 89173
+"GET /media/img/favicon.png HTTP/1.1" 200 491
+"GET / HTTP/1.1" 200 34049
+"GET /register HTTP/1.1" 301 0
+"GET /register/ HTTP/1.1" 200 14200
+"GET / HTTP/1.1" 200 34049
+"GET /media/img/hero-img.png HTTP/1.1" 200 89173
+"GET /media/img/favicon.png HTTP/1.1" 200 491
+"GET / HTTP/1.1" 200 34049
+"GET /register HTTP/1.1" 301 0
+"GET /register/ HTTP/1.1" 200 14200
+"GET / HTTP/1.1" 200 34049
+"GET /media/img/hero-img.png HTTP/1.1" 200 89173
+"GET /media/img/favicon.png HTTP/1.1" 200 491
+"GET / HTTP/1.1" 200 34049
+"GET / HTTP/1.1" 200 34049
+"GET /register HTTP/1.1" 301 0
+"GET /register/ HTTP/1.1" 200 14200
+"GET /register/ HTTP/1.1" 200 14200
+"GET / HTTP/1.1" 200 34049
+"GET /media/img/hero-img.png HTTP/1.1" 200 89173
+"GET /media/img/favicon.png HTTP/1.1" 200 491
+"GET / HTTP/1.1" 200 34049
+"GET / HTTP/1.1" 200 34049
+"GET /register HTTP/1.1" 301 0
+"GET /register/ HTTP/1.1" 200 14200
+"GET /missing HTTP/1.1" 301 0
+"GET /missing/ HTTP/1.1" 200 13287
+"GET /media/missing_persons/816756-robert-downey-jr-hd-wallpaper.jpg HTTP/1.1" 200 260557
+"GET /media/missing_persons/R.jpg HTTP/1.1" 200 33878
+"GET /media/missing_persons/shaid.webp HTTP/1.1" 200 27624
+"GET /media/missing_persons/rick-harrison.jpg HTTP/1.1" 200 126550
+"GET /media/missing_persons/WhatsApp_Image_2025-09-13_at_13.19.53_904ce11c.jpg HTTP/1.1" 200 76891
+"GET /media/missing_persons/WhatsApp_Image_2025-09-13_at_13_yvO8iNR.19.53_904ce11c.jpg HTTP/1.1" 200 76891
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 34049
+"GET /media/img/hero-img.png HTTP/1.1" 200 89173
+"GET /media/img/favicon.png HTTP/1.1" 200 491
+"GET / HTTP/1.1" 200 34049
+"GET /cameras/ HTTP/1.1" 200 14299
+"GET /cameras/add/ HTTP/1.1" 200 3169
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6388
+"POST /cameras/add/ HTTP/1.1" 302 0
+"GET /cameras/ HTTP/1.1" 200 15529
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 140
+"GET /camera-preview/29/ HTTP/1.1" 200 231216
+"GET /camera-preview/29/?t=1764829571953 HTTP/1.1" 200 110935
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/29/?t=1764829573952 HTTP/1.1" 200 124150
+"GET /camera-preview/29/?t=1764829575947 HTTP/1.1" 200 145578
+"GET /missing HTTP/1.1" 301 0
+"GET /missing/ HTTP/1.1" 200 13287
+"GET /media/missing_persons/816756-robert-downey-jr-hd-wallpaper.jpg HTTP/1.1" 200 260557
+"GET /media/missing_persons/R.jpg HTTP/1.1" 200 33878
+"GET /media/missing_persons/rick-harrison.jpg HTTP/1.1" 200 126550
+"GET /media/missing_persons/shaid.webp HTTP/1.1" 200 27624
+"GET /media/missing_persons/WhatsApp_Image_2025-09-13_at_13.19.53_904ce11c.jpg HTTP/1.1" 200 76891
+"GET /media/missing_persons/WhatsApp_Image_2025-09-13_at_13_yvO8iNR.19.53_904ce11c.jpg HTTP/1.1" 200 76891
+"GET / HTTP/1.1" 200 34049
+"GET / HTTP/1.1" 200 34049
+"GET /admin HTTP/1.1" 301 0
+"GET /admin/ HTTP/1.1" 302 0
+"GET /admin/login/?next=/admin/ HTTP/1.1" 200 4177
+"GET /static/admin/css/base.css HTTP/1.1" 200 22120
+"GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+"GET /static/admin/css/login.css HTTP/1.1" 200 951
+"GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+"GET /static/admin/css/responsive.css HTTP/1.1" 200 16565
+"GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+"GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+"POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+"GET /admin/ HTTP/1.1" 200 11846
+"GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+"GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+"GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+"GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+"GET /admin/auth/user/ HTTP/1.1" 200 13202
+"GET /static/admin/css/changelists.css HTTP/1.1" 200 6878
+"GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+"GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+"GET /static/admin/js/core.js HTTP/1.1" 200 6208
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+"GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+"GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+"GET /static/admin/img/search.svg HTTP/1.1" 200 458
+"GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+"GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+"GET /static/admin/js/filters.js HTTP/1.1" 200 978
+"GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+"GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+"GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+"GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+"GET /admin/missingperson/missingperson/ HTTP/1.1" 200 12102
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/missingperson/missingperson/ HTTP/1.1" 200 9618
+"GET /static/admin/js/cancel.js HTTP/1.1" 200 884
+"POST /admin/missingperson/missingperson/ HTTP/1.1" 302 0
+"GET /admin/missingperson/missingperson/ HTTP/1.1" 200 11665
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /missing/ HTTP/1.1" 200 11756
+"GET /cameras/ HTTP/1.1" 200 15291
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 140
+"GET /camera-preview/29/ HTTP/1.1" 200 122260
+"GET /camera-preview/29/?t=1764829759754 HTTP/1.1" 200 132651
+"GET /camera-preview/29/?t=1764829761767 HTTP/1.1" 200 204918
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/29/?t=1764829763764 HTTP/1.1" 200 162993
+"GET /camera-preview/29/?t=1764829765755 HTTP/1.1" 200 156771
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/29/?t=1764829767762 HTTP/1.1" 200 146147
+"GET /camera-preview/29/?t=1764829769757 HTTP/1.1" 200 172015
+"GET /camera-preview/29/?t=1764829771761 HTTP/1.1" 200 122957
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/29/?t=1764829773768 HTTP/1.1" 200 103804
+"GET /camera-preview/29/?t=1764829775760 HTTP/1.1" 200 116615
+"GET /detection-status/ HTTP/1.1" 200 64
+- Broken pipe from ('127.0.0.1', 64020)
+"GET /camera-preview/29/?t=1764829779758 HTTP/1.1" 200 148003
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/29/?t=1764829781763 HTTP/1.1" 200 140254
+"GET /camera-preview/29/?t=1764829783768 HTTP/1.1" 200 108228
+"GET /camera-preview/29/?t=1764829785755 HTTP/1.1" 200 153576
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 140
+"GET /camera-preview/29/?t=1764829787761 HTTP/1.1" 200 178536
+"GET /camera-preview/29/?t=1764829790957 HTTP/1.1" 200 179368
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/29/?t=1764829792961 HTTP/1.1" 200 163002
+"GET /camera-preview/29/?t=1764829794948 HTTP/1.1" 200 191417
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/29/?t=1764829796960 HTTP/1.1" 200 151594
+"GET /camera-preview/29/?t=1764829798951 HTTP/1.1" 200 130982
+"GET /camera-preview/29/?t=1764829800957 HTTP/1.1" 200 204612
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/29/?t=1764829803615 HTTP/1.1" 200 296797
+"GET /camera-preview/29/?t=1764829805452 HTTP/1.1" 200 253375
+"GET /camera-preview/29/?t=1764829806962 HTTP/1.1" 200 242905
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/29/?t=1764829808960 HTTP/1.1" 200 151474
+"GET /camera-preview/29/?t=1764829810951 HTTP/1.1" 200 203961
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/29/?t=1764829812953 HTTP/1.1" 200 219346
+"GET /camera-preview/29/?t=1764829814954 HTTP/1.1" 200 211686
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 140
+"GET /camera-preview/29/?t=1764829816948 HTTP/1.1" 200 217172
+"GET /camera-preview/29/?t=1764829820544 HTTP/1.1" 200 224621
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/29/?t=1764829822540 HTTP/1.1" 200 188156
+"GET /camera-preview/29/?t=1764829824549 HTTP/1.1" 200 164425
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/29/?t=1764829826548 HTTP/1.1" 200 190007
+"GET /camera-preview/29/?t=1764829828547 HTTP/1.1" 200 286149
+"GET /camera-preview/29/?t=1764829830542 HTTP/1.1" 200 223505
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/29/?t=1764829832544 HTTP/1.1" 200 213108
+"GET /camera-preview/29/?t=1764829834543 HTTP/1.1" 200 248201
+"GET /camera-preview/29/?t=1764829836548 HTTP/1.1" 200 144661
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/29/?t=1764829838541 HTTP/1.1" 200 125754
+"GET /camera-preview/29/?t=1764829840537 HTTP/1.1" 200 158977
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/29/?t=1764829842550 HTTP/1.1" 200 142566
+"GET /camera-preview/29/?t=1764829844537 HTTP/1.1" 200 225509
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/29/?t=1764829846547 HTTP/1.1" 200 147749
+"GET /all-cameras-preview/ HTTP/1.1" 200 140
+"GET /camera-preview/29/?t=1764829850105 HTTP/1.1" 200 123929
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/29/?t=1764829852102 HTTP/1.1" 200 150111
+"GET /camera-preview/29/?t=1764829854109 HTTP/1.1" 200 116706
+"GET /camera-preview/29/?t=1764829856107 HTTP/1.1" 200 122105
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/29/?t=1764829858105 HTTP/1.1" 200 126801
+"GET /detection-status/ HTTP/1.1" 200 64
+- Broken pipe from ('127.0.0.1', 64076)
+"GET /camera-preview/29/?t=1764829864112 HTTP/1.1" 200 150389
+"GET /camera-preview/29/?t=1764829866106 HTTP/1.1" 200 158635
+"GET /detection-status/ HTTP/1.1" 200 64
+Not Found: /camera-preview/29/
+- Broken pipe from ('127.0.0.1', 64087)
+"GET /camera-preview/29/?t=1764829868110 HTTP/1.1" 200 228584
+"GET /camera-preview/29/?t=1764829870110 HTTP/1.1" 200 210772
+"GET /detection-status/ HTTP/1.1" 200 64
+- Broken pipe from ('127.0.0.1', 64088)
+- Broken pipe from ('127.0.0.1', 64203)
+"GET /camera-preview/29/?t=1764829876105 HTTP/1.1" 200 164375
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 140
+"GET /camera-preview/29/ HTTP/1.1" 200 150010
+"GET /camera-preview/29/?t=1764829879584 HTTP/1.1" 200 159482
+"GET /camera-preview/29/?t=1764829881582 HTTP/1.1" 200 187028
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/29/?t=1764829883578 HTTP/1.1" 200 168001
+"GET /camera-preview/29/?t=1764829885579 HTTP/1.1" 200 167503
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/29/?t=1764829887573 HTTP/1.1" 200 133699
+"GET /camera-preview/29/?t=1764829889584 HTTP/1.1" 200 195652
+"GET /camera-preview/29/?t=1764829891572 HTTP/1.1" 200 239430
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/29/?t=1764829893576 HTTP/1.1" 200 231995
+"GET /camera-preview/29/?t=1764829895582 HTTP/1.1" 200 281545
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/29/?t=1764829897584 HTTP/1.1" 200 88057
+"GET /camera-preview/29/?t=1764829899574 HTTP/1.1" 200 139295
+"GET /camera-preview/29/?t=1764829901576 HTTP/1.1" 200 66581
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/29/?t=1764829903586 HTTP/1.1" 200 230866
+"GET /camera-preview/29/?t=1764829905573 HTTP/1.1" 200 111332
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 140
+"GET /camera-preview/29/?t=1764829907577 HTTP/1.1" 200 198393
+"GET /camera-preview/29/?t=1764829909612 HTTP/1.1" 200 109406
+"GET /camera-preview/29/?t=1764829911619 HTTP/1.1" 200 137972
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/29/?t=1764829913615 HTTP/1.1" 200 107059
+"GET /camera-preview/29/?t=1764829915604 HTTP/1.1" 200 119101
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/29/?t=1764829917607 HTTP/1.1" 200 158392
+"GET /camera-preview/29/?t=1764829919609 HTTP/1.1" 200 172763
+"GET /camera-preview/29/?t=1764829921612 HTTP/1.1" 200 129060
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/29/?t=1764829923607 HTTP/1.1" 200 135844
+"GET /camera-preview/29/?t=1764829925617 HTTP/1.1" 200 76263
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/29/?t=1764829927616 HTTP/1.1" 200 120963
+"GET /camera-preview/29/?t=1764829929617 HTTP/1.1" 200 166644
+"GET /camera-preview/29/?t=1764829931605 HTTP/1.1" 200 173278
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/29/?t=1764829933613 HTTP/1.1" 200 182352
+"GET /camera-preview/29/?t=1764829935617 HTTP/1.1" 200 138681
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 140
+"GET /camera-preview/29/?t=1764829937616 HTTP/1.1" 200 120923
+"GET /camera-preview/29/?t=1764829939665 HTTP/1.1" 200 173829
+"GET /camera-preview/29/?t=1764829941666 HTTP/1.1" 200 253024
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/29/?t=1764829943670 HTTP/1.1" 200 137069
+"GET /camera-preview/29/?t=1764829945657 HTTP/1.1" 200 213958
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/29/?t=1764829947657 HTTP/1.1" 200 133067
+"GET /camera-preview/29/?t=1764829949669 HTTP/1.1" 200 99394
+"GET /camera-preview/29/?t=1764829951669 HTTP/1.1" 200 86449
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/29/?t=1764829953666 HTTP/1.1" 200 81228
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/29/?t=1764829955665 HTTP/1.1" 200 74394
+"GET /camera-preview/29/?t=1764829957662 HTTP/1.1" 200 86653
+"GET / HTTP/1.1" 200 34049
+"GET /camera-preview/29/?t=1764829959655 HTTP/1.1" 200 118617
+"GET /register HTTP/1.1" 301 0
+"GET /register/ HTTP/1.1" 200 14200
+"POST /register/ HTTP/1.1" 302 0
+"GET /register HTTP/1.1" 301 0
+"GET /register/ HTTP/1.1" 200 14320
+"GET /missing/ HTTP/1.1" 200 12512
+"GET /media/missing_persons/WhatsApp_Image_2025-12-04_at_11.52.54_c345424d.jpg HTTP/1.1" 200 118964
+- Broken pipe from ('127.0.0.1', 64286)
+"GET /cameras/ HTTP/1.1" 200 15291
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 140
+"GET /camera-preview/29/ HTTP/1.1" 200 72535
+"GET /camera-preview/29/?t=1764830274855 HTTP/1.1" 200 84851
+"GET /camera-preview/29/?t=1764830276856 HTTP/1.1" 200 181672
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/29/?t=1764830278848 HTTP/1.1" 200 267303
+"GET /camera-preview/29/?t=1764830280848 HTTP/1.1" 200 207995
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /camera-preview/29/?t=1764830282847 HTTP/1.1" 200 139180
+"GET /camera-preview/29/?t=1764830284854 HTTP/1.1" 200 176256
+"GET /camera-preview/29/?t=1764830286850 HTTP/1.1" 200 160318
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /surveillance HTTP/1.1" 301 0
+"GET /camera-preview/29/?t=1764830288850 HTTP/1.1" 200 215493
+"GET /surveillance/ HTTP/1.1" 200 3385
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 34049
+"GET /media/img/hero-img.png HTTP/1.1" 200 89173
+"GET /media/img/favicon.png HTTP/1.1" 200 491
+"GET / HTTP/1.1" 200 9658
+"GET /missing HTTP/1.1" 301 0
+"GET /missing/ HTTP/1.1" 200 12512
+"GET /media/missing_persons/R.jpg HTTP/1.1" 200 33878
+"GET /media/missing_persons/816756-robert-downey-jr-hd-wallpaper.jpg HTTP/1.1" 200 260557
+"GET /media/missing_persons/shaid.webp HTTP/1.1" 200 27624
+"GET /media/missing_persons/WhatsApp_Image_2025-12-04_at_11.52.54_c345424d.jpg HTTP/1.1" 200 118964
+"GET /media/missing_persons/rick-harrison.jpg HTTP/1.1" 200 126550
+Not Found: /locations
+"GET /locations HTTP/1.1" 404 6382
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6388
+"GET /cameras/ HTTP/1.1" 200 15291
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /cameras/delete/29/ HTTP/1.1" 200 1371
+"POST /cameras/delete/29/ HTTP/1.1" 302 0
+"GET /cameras/ HTTP/1.1" 200 14539
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 147
+"GET /all-cameras-preview/ HTTP/1.1" 200 2
+"GET /surveillance HTTP/1.1" 301 0
+"GET /surveillance/ HTTP/1.1" 200 3385
+"GET /register HTTP/1.1" 301 0
+"GET /register/ HTTP/1.1" 200 14200
+"GET / HTTP/1.1" 200 9658
+"GET /admin/login/ HTTP/1.1" 200 4164
+"GET /static/admin/css/base.css HTTP/1.1" 200 22120
+"GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+"GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+"GET /static/admin/css/login.css HTTP/1.1" 200 951
+"GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+"GET /static/admin/css/responsive.css HTTP/1.1" 200 16565
+"GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+"GET / HTTP/1.1" 200 11591
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11564
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11298
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11298
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET /missing/ HTTP/1.1" 200 12512
+Not Found: /locations
+"GET /locations HTTP/1.1" 404 6382
+"GET /cameras/ HTTP/1.1" 200 14299
+"GET /all-cameras-preview/ HTTP/1.1" 200 2
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /surveillance/ HTTP/1.1" 200 3385
+"GET /register/ HTTP/1.1" 200 14200
+"GET / HTTP/1.1" 200 12145
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11298
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11018
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11017
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11018
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11018
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11018
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11008
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11006
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11006
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11006
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11006
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11006
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11008
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11274
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11292
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11013
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11240
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11231
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11283
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11281
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11281
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11278
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11281
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11281
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11281
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11281
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11281
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11212
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11281
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11319
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11318
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11316
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11306
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11288
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11297
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 10968
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 12593
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 10968
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11305
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11301
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11301
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11301
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11303
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11301
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11301
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11301
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11301
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11329
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11330
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 9105
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11330
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11693
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11675
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11663
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11663
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11565
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11477
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11464
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11477
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 9649
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11477
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 12299
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 12332
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 12332
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11409
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11310
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 13815
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 11310
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 12469
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 12317
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 14087
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 12297
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 12254
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 12268
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 12286
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 8111
+"GET / HTTP/1.1" 200 8111
+"GET / HTTP/1.1" 200 12240
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 12836
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 12823
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 12776
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 12663
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 12666
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 12664
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 12690
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 12721
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 12656
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 12657
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 12651
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 12656
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 12656
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 12657
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 12661
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 12657
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 7167
+"GET / HTTP/1.1" 200 12710
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 13158
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 12709
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 12679
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 12710
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 13559
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 17550
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 13670
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 13451
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 13451
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 13473
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 13466
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET /missing/ HTTP/1.1" 200 12512
+"GET / HTTP/1.1" 200 13476
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 13477
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 13455
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 13465
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 13491
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 13513
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET /missing/ HTTP/1.1" 200 12512
+C:\Users\USER\Desktop\Missing-Person-Detection-System\core\missingperson\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 14055
+"GET / HTTP/1.1" 200 14055
+"GET / HTTP/1.1" 200 14055
+"GET / HTTP/1.1" 200 14055
+"GET / HTTP/1.1" 200 14055
+"GET /missing/ HTTP/1.1" 200 12512
+"GET /media/missing_persons/WhatsApp_Image_2025-12-04_at_11.52.54_c345424d.jpg HTTP/1.1" 304 0
+"GET / HTTP/1.1" 200 14055
+"GET / HTTP/1.1" 200 14055
+C:\Users\USER\Desktop\Missing-Person-Detection-System\core\missingperson\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 13466
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 13466
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET /media/img/favicon.png HTTP/1.1" 200 491
+"GET /missing HTTP/1.1" 301 0
+"GET /missing/ HTTP/1.1" 200 12512
+"GET /media/missing_persons/816756-robert-downey-jr-hd-wallpaper.jpg HTTP/1.1" 200 260557
+"GET /media/missing_persons/R.jpg HTTP/1.1" 200 33878
+"GET /media/missing_persons/rick-harrison.jpg HTTP/1.1" 200 126550
+"GET /media/missing_persons/shaid.webp HTTP/1.1" 200 27624
+"GET /media/missing_persons/WhatsApp_Image_2025-12-04_at_11.52.54_c345424d.jpg HTTP/1.1" 200 118964
+"GET / HTTP/1.1" 200 13466
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET /media/img/favicon.png HTTP/1.1" 200 491
+"GET /admin HTTP/1.1" 301 0
+"GET /admin/ HTTP/1.1" 302 0
+"GET /admin/login/?next=/admin/ HTTP/1.1" 200 4177
+"GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+"GET /static/admin/css/base.css HTTP/1.1" 200 22120
+"GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+"GET /static/admin/css/login.css HTTP/1.1" 200 951
+"GET /static/admin/css/responsive.css HTTP/1.1" 200 16565
+"GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+"GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6388
+"POST /admin/login/?next=/admin/ HTTP/1.1" 200 4344
+"POST /admin/login/?next=/admin/ HTTP/1.1" 200 4344
+"POST /admin/login/?next=/admin/ HTTP/1.1" 200 4345
+"POST /admin/login/?next=/admin/ HTTP/1.1" 200 4344
+"POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+"GET /admin/ HTTP/1.1" 200 11733
+"GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+"GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+"GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+"GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+"GET /admin/auth/user/ HTTP/1.1" 200 13202
+"GET /static/admin/css/changelists.css HTTP/1.1" 200 6878
+"GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /static/admin/js/core.js HTTP/1.1" 200 6208
+"GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+"GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+"GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+"GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+"GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+"GET /static/admin/img/search.svg HTTP/1.1" 200 458
+"GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+"GET /static/admin/js/filters.js HTTP/1.1" 200 978
+"GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+"GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+"GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+"GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+"GET /admin/ HTTP/1.1" 200 11733
+"GET /admin/missingperson/missingperson/ HTTP/1.1" 200 11807
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"POST /admin/missingperson/missingperson/ HTTP/1.1" 200 9449
+"GET /static/admin/js/cancel.js HTTP/1.1" 200 884
+"POST /admin/missingperson/missingperson/ HTTP/1.1" 302 0
+"GET /admin/missingperson/missingperson/ HTTP/1.1" 200 11664
+"GET /admin/jsi18n/ HTTP/1.1" 200 3342
+"GET /missing/ HTTP/1.1" 200 11756
+"GET /cameras/ HTTP/1.1" 200 14299
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 2
+"GET /missing/ HTTP/1.1" 200 11756
+Not Found: /locations
+"GET /locations HTTP/1.1" 404 6382
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 6388
+"GET /cameras/ HTTP/1.1" 200 14299
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 2
+"GET / HTTP/1.1" 200 13466
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+C:\Users\USER\Desktop\Missing-Person-Detection-System\core\missingperson\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\USER\Desktop\Missing-Person-Detection-System\core\missingperson\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\USER\Desktop\Missing-Person-Detection-System\core\core\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\USER\Desktop\Missing-Person-Detection-System\core\core\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\USER\Desktop\Missing-Person-Detection-System\core\missingperson\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\USER\Desktop\Missing-Person-Detection-System\core\missingperson\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\USER\Desktop\Missing-Person-Detection-System\core\core\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\USER\Desktop\Missing-Person-Detection-System\core\core\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\USER\Desktop\Missing-Person-Detection-System\core\core\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\USER\Desktop\Missing-Person-Detection-System\core\core\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\USER\Desktop\Missing-Person-Detection-System\core\core\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\USER\Desktop\Missing-Person-Detection-System\core\core\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\USER\Desktop\Missing-Person-Detection-System\core\missingperson\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\USER\Desktop\Missing-Person-Detection-System\core\missingperson\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\USER\Desktop\Missing-Person-Detection-System\core\missingperson\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\USER\Desktop\Missing-Person-Detection-System\core\missingperson\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\USER\Desktop\Missing-Person-Detection-System\core\core\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\USER\Desktop\Missing-Person-Detection-System\core\core\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\USER\Desktop\Missing-Person-Detection-System\core\core\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\USER\Desktop\Missing-Person-Detection-System\core\core\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\USER\Desktop\Missing-Person-Detection-System\core\core\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\USER\Desktop\Missing-Person-Detection-System\core\missingperson\models.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 3594
+"GET / HTTP/1.1" 200 3594
+"GET / HTTP/1.1" 200 3594
+"GET / HTTP/1.1" 200 13466
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET /missing/ HTTP/1.1" 200 11756
+"GET / HTTP/1.1" 200 13466
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET / HTTP/1.1" 200 13466
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET /missing/ HTTP/1.1" 200 11756
+"GET /surveillance HTTP/1.1" 301 0
+"GET /surveillance/ HTTP/1.1" 200 3611
+"GET /register HTTP/1.1" 301 0
+"GET /register/ HTTP/1.1" 200 14200
+"GET / HTTP/1.1" 200 13466
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET /register/ HTTP/1.1" 200 14200
+"GET /missing/ HTTP/1.1" 200 11756
+"GET /missing/ HTTP/1.1" 200 11756
+"GET /surveillance/ HTTP/1.1" 200 3375
+Not Found: /locations
+"GET /locations HTTP/1.1" 404 6382
+"GET /cameras/ HTTP/1.1" 200 14299
+"GET /all-cameras-preview/ HTTP/1.1" 200 2
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 2
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 2
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /all-cameras-preview/ HTTP/1.1" 200 2
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /detection-status/ HTTP/1.1" 200 64
+"GET /missing/ HTTP/1.1" 200 11756
+"GET / HTTP/1.1" 200 13466
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403
+"GET /missing/ HTTP/1.1" 200 11756
+"GET / HTTP/1.1" 200 13466
+Not Found: /image_78465c.jpg
+"GET /image_78465c.jpg HTTP/1.1" 404 6403

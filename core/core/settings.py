@@ -150,6 +150,9 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER =  "tarunkumarsingh295@gmail.com"# Replace with your Gmail email address
 EMAIL_HOST_PASSWORD = "lrrx keke obdj ibjf" # Replace with your password
 
+LOGIN_URL = '/admin/login/' # Or create a dedicated login page
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 # Add this to your settings.py
 LOGGING = {

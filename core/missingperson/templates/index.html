@@ -4,21 +4,24 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-    <title>Bharatiya Rescue - AI Missing Person Detection SaaS</title>
+    <title>Bharatiya Rescue - Finding Missing Persons App</title>
     <meta
       content="AI-powered SaaS for missing person detection and tracking"
       name="description"
     />
     <meta
-      content="AI, SaaS, Missing Person, Detection, Surveillance, India"
+      content="AI, SaaS, Missing Person, Detection, Surveillance"
       name="keywords"
     />
 
     <link href="/media/img/favicon.png" rel="icon" />
-    <link href="/media/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
     <link
-      href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700&display=swap"
+      href="https://fonts.googleapis.com/css?family=Inter:400,700,800,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap"
       rel="stylesheet"
     />
 
@@ -30,1336 +33,451 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
       rel="stylesheet"
     />
+
     <style>
       :root {
-        --primary: #2563eb;
-        --primary-dark: #1d4ed8;
-        --secondary: #10b981;
         --dark: #1f2937;
-        --light: #f9fafb;
-        --gray: #6b7280;
-        --accent: #f97316;
+        --text-color: #333;
       }
 
+      /* Base Reset and Full Viewport Setup */
+      html,
       body {
-        font-family: "Inter", sans-serif;
-        color: var(--dark);
-        overflow-x: hidden;
-      }
-
-      /* Modern navbar */
-      .navbar {
-        padding: 1rem 0;
-        transition: all 0.3s ease;
-      }
-
-      .navbar-brand {
-        font-weight: 700;
-        font-size: 1.5rem;
-        color: var(--primary);
-      }
-
-      .nav-link {
-        font-weight: 500;
-        margin: 0 0.5rem;
-        position: relative;
-      }
-
-      .nav-link:after {
-        content: "";
-        position: absolute;
-        width: 0;
-        height: 2px;
-        bottom: 0;
-        left: 0;
-        background-color: var(--primary);
-        transition: width 0.3s ease;
-      }
-
-      .nav-link:hover:after {
-        width: 100%;
-      }
-
-      .getstarted {
-        background: var(--primary);
-        color: white;
-        border-radius: 50px;
-        padding: 0.6rem 1.5rem;
-        font-weight: 600;
-        transition: all 0.3s ease;
-      }
-
-      .getstarted:hover {
-        background: var(--primary-dark);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
-      }
-
-      /* Hero section with gradient background */
-      .hero-section {
-        padding: 7rem 0 5rem;
-        background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .hero-section:before {
-        content: "";
-        position: absolute;
-        width: 500px;
-        height: 500px;
-        border-radius: 50%;
-        background: rgba(37, 99, 235, 0.05);
-        top: -250px;
-        right: -250px;
-      }
-
-      .hero-section:after {
-        content: "";
-        position: absolute;
-        width: 300px;
-        height: 300px;
-        border-radius: 50%;
-        background: rgba(16, 185, 129, 0.05);
-        bottom: -150px;
-        left: -150px;
-      }
-
-      .hero-title {
-        font-size: 3.5rem;
-        font-weight: 800;
-        line-height: 1.2;
-        margin-bottom: 1.5rem;
-        color: var(--dark);
-      }
-
-      .hero-desc {
-        font-size: 1.25rem;
-        color: var(--gray);
-        margin-bottom: 2.5rem;
-        line-height: 1.6;
-      }
-
-      .btn-light {
-        background: white;
-        color: var(--primary);
-        border: none;
-        font-weight: 600;
-        padding: 0.8rem 2rem;
-        border-radius: 50px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        transition: all 0.3s ease;
-      }
-
-      .btn-light:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-      }
-
-      .btn-primary {
-        background: var(--primary);
-        color: white;
-        border: none;
-        font-weight: 600;
-        padding: 0.8rem 2rem;
-        border-radius: 50px;
-        box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
-        transition: all 0.3s ease;
-      }
-
-      .btn-primary:hover {
-        background: var(--primary-dark);
-        transform: translateY(-2px);
-        box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
-      }
-
-      .hero-img {
-        max-width: 90%;
-        animation: float 6s ease-in-out infinite;
-      }
-
-      @keyframes float {
-        0% {
-          transform: translateY(0px);
-        }
-        50% {
-          transform: translateY(-20px);
-        }
-        100% {
-          transform: translateY(0px);
-        }
-      }
-
-      /* Stats section */
-      .stats-section {
-        padding: 4rem 0;
-        background: white;
-      }
-
-      .stat-number {
-        font-size: 2.5rem;
-        font-weight: 700;
-        color: var(--primary);
-        margin-bottom: 0.5rem;
-      }
-
-      .stat-text {
-        font-size: 1rem;
-        color: var(--gray);
-      }
-
-      /* Features section */
-      .features-section {
-        padding: 6rem 0;
-        background: var(--light);
-      }
-
-      .section-title {
-        text-align: center;
-        margin-bottom: 4rem;
-      }
-
-      .section-title h2 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        color: var(--dark);
-      }
-
-      .section-title p {
-        font-size: 1.125rem;
-        color: var(--gray);
-        max-width: 700px;
-        margin: 0 auto;
-      }
-
-      .feature-card {
-        background: white;
-        border-radius: 12px;
-        padding: 2rem;
         height: 100%;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.03);
-        border: 1px solid rgba(0, 0, 0, 0.05);
-        transition: all 0.3s ease;
+        margin: 0;
+        overflow: hidden; /* Prevent scrolling since it's a single screen */
+        font-family: "Inter", sans-serif;
       }
 
-      .feature-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
-      }
-
-      .feature-icon {
-        width: 70px;
-        height: 70px;
-        background: rgba(37, 99, 235, 0.1);
-        border-radius: 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 1.5rem;
-        color: var(--primary);
-        font-size: 1.8rem;
-      }
-
-      .feature-title {
-        font-size: 1.25rem;
-        font-weight: 600;
-        margin-bottom: 1rem;
-        color: var(--dark);
-      }
-
-      .feature-desc {
-        color: var(--gray);
-        line-height: 1.6;
-      }
-
-      /* How it works section */
-      .how-it-works {
-        padding: 6rem 0;
-        background: white;
-      }
-
-      .step-card {
-        text-align: center;
-        padding: 2rem;
-      }
-
-      .step-number {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background: var(--primary);
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 700;
-        margin: 0 auto 1.5rem;
-      }
-
-      /* Testimonials */
-      .testimonials {
-        padding: 6rem 0;
-        background: var(--light);
-      }
-
-      .testimonial-card {
-        background: white;
-        border-radius: 12px;
-        padding: 2rem;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.03);
-        margin: 1rem;
-        position: relative;
-      }
-
-      .testimonial-card:before {
-        content: '"';
-        position: absolute;
-        top: 1rem;
-        left: 1.5rem;
-        font-size: 4rem;
-        color: rgba(37, 99, 235, 0.1);
-        font-family: serif;
-        line-height: 1;
-      }
-
-      .testimonial-text {
-        color: var(--dark);
-        line-height: 1.7;
-        margin-bottom: 1.5rem;
-        position: relative;
+      /* 1. MAP BACKGROUND (Fixed to viewport) */
+      .map-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
         z-index: 1;
+        background-color: #f0f0f0;
+        /* Mimic subtle map lines/details */
+        background-image: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="10" x2="100" y2="10" stroke="%23e0e0e0" stroke-width="0.15"/><line x1="0" y1="30" x2="100" y2="30" stroke="%23e0e0e0" stroke-width="0.15"/><line x1="0" y1="50" x2="100" y2="50" stroke="%23e0e0e0" stroke-width="0.15"/><line x1="0" y1="70" x2="100" y2="70" stroke="%23e0e0e0" stroke-width="0.15"/><line x1="0" y1="90" x2="100" y2="90" stroke="%23e0e0e0" stroke-width="0.15"/><line x1="10" y1="0" x2="10" y2="100" stroke="%23e0e0e0" stroke-width="0.15"/><line x1="30" y1="0" x2="30" y2="100" stroke="%23e0e0e0" stroke-width="0.15"/><line x1="50" y1="0" x2="50" y2="100" stroke="%23e0e0e0" stroke-width="0.15"/><line x1="70" y1="0" x2="70" y2="100" stroke="%23e0e0e0" stroke-width="0.15"/><line x1="90" y1="0" x2="90" y2="100" stroke="%23e0e0e0" stroke-width="0.15"/></svg>');
+        background-size: 100% 100%;
       }
 
-      .testimonial-author {
-        display: flex;
-        align-items: center;
+      /* 2. HEADER OVERLAY (Fixed to top) */
+      .header-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 1.5rem 2rem;
+        z-index: 10;
       }
 
-      .author-img {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        object-fit: cover;
-        margin-right: 1rem;
-      }
-
-      .author-info h5 {
-        margin-bottom: 0.2rem;
-        font-weight: 600;
-      }
-
-      .author-info p {
-        color: var(--gray);
-        font-size: 0.9rem;
+      .header-title {
+        font-family: "Dancing Script", cursive;
+        font-weight: 900;
+        font-size: 3vw;
+        letter-spacing: 2px;
+        color: var(--text-color);
         margin: 0;
       }
 
-      /* Pricing section */
-      .pricing-section {
-        padding: 6rem 0;
-        background: white;
+      .menu-toggle-icon {
+        font-size: 2rem;
+        color: var(--dark);
+        cursor: pointer;
+        transition: color 0.3s ease;
       }
 
-      .pricing-card {
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        transition: all 0.3s ease;
-        background: white;
-      }
-
-      .pricing-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-      }
-
-      .pricing-header {
-        padding: 2rem;
-        background: var(--primary);
+      .offcanvas {
+        background-color: var(--nav-bg);
+        backdrop-filter: blur(50px);
+        -webkit-backdrop-filter: blur(50px);
         color: white;
-        text-align: center;
+        padding-top: 1rem;
+        border-radius: 15px 0 0 15px; /* Left side rounded corner */
+        border: none;
       }
 
-      .pricing-name {
-        font-size: 1.5rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-      }
-
-      .pricing-price {
-        font-size: 2.5rem;
-        font-weight: 800;
-        margin-bottom: 0;
-      }
-
-      .pricing-duration {
-        font-size: 0.9rem;
-        opacity: 0.8;
-      }
-
-      .pricing-features {
-        padding: 2rem;
-      }
-
-      .pricing-feature {
-        padding: 0.5rem 0;
+      .offcanvas-header {
         display: flex;
+        flex-direction: column;
         align-items: center;
+        padding: 0 !important;
+        margin: 0 !important;
       }
 
-      .pricing-feature i {
-        color: var(--secondary);
-        margin-right: 0.5rem;
+      .offcanvas-header .btn-close {
+        align-self: flex-end;
+        margin: 1rem;
       }
 
-      .pricing-cta {
-        padding: 0 2rem 2rem;
-      }
-
-      /* FAQ section */
-      .faq-section {
-        padding: 6rem 0;
-        background: var(--light);
-      }
-
-      .accordion-button {
-        font-weight: 600;
-        padding: 1.2rem 1.25rem;
-      }
-
-      .accordion-button:not(.collapsed) {
-        background: rgba(37, 99, 235, 0.05);
-        color: var(--primary);
-      }
-
-      .accordion-button:focus {
-        box-shadow: none;
-        border-color: rgba(0, 0, 0, 0.125);
-      }
-
-      /* CTA section */
-      .cta-section {
-        padding: 6rem 0;
-        background: var(--primary);
-        color: white;
+      /* Logo Container */
+      .offcanvas-logo {
+        font-family: "Dancing Script", cursive;
+        font-weight: 900;
+        font-size: 3.5rem;
+        color: var(--text-color);
         text-align: center;
+        margin: 0 !important;
       }
 
-      .cta-title {
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 1.5rem;
+      .offcanvas-body .nav-link {
+        font-weight: 600;
+        color: var(--dark);
+        border-radius: 12px;
+        padding: 1rem;
+        margin-right: 1rem;
+        transition: all 0.2s;
       }
 
-      .cta-buttons {
+      /* Social Media Icons */
+      .social-media-container {
+        width: 100%;
+        padding: 1.2rem 0;
         display: flex;
         justify-content: center;
-        gap: 1rem;
-        flex-wrap: wrap;
+        gap: 1.5rem;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(20px);
       }
 
-      /* Footer */
-      #footer {
-        background: var(--dark);
-        color: white;
-        padding: 4rem 0 2rem;
-      }
-
-      .footer-logo {
-        font-size: 1.8rem;
-        font-weight: 700;
-        color: white;
-      }
-
-      .footer-bottom {
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        padding-top: 2rem;
-        margin-top: 2rem;
-        color: rgba(255, 255, 255, 0.7);
-      }
-
-      #footer a {
-        color: rgba(255, 255, 255, 0.7);
-        text-decoration: none;
+      .social-icon {
+        font-size: 1.2rem;
+        color: var(--dark);
         transition: all 0.3s ease;
       }
 
-      #footer a:hover {
+      .social-icon:hover {
+        transform: translateY(-3px);
+      }
+
+      .offcanvas-body .nav-link:hover {
+        background-color: #a0a1a2ff;
+        color: black;
+        transform: translateX(6px);
+      }
+
+      .offcanvas-body > .mt-auto .nav-link {
+        margin-top: 1.5rem;
+        font-weight: 700;
+      }
+
+      /* 3. MAIN CONTENT ----------------- */
+      .main-content-container {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+      }
+
+      /* Text Block Styling */
+      .text-block {
+        position: absolute;
+        top: 50%;
+        left: 40%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+
+      /* Main Black Text */
+      .main-title {
+        font-family: "Hubot Sans";
+        font-size: 8.5vw;
+        font-weight: 900;
+        line-height: 0.9;
+        color: #000;
+        text-transform: uppercase;
+        margin-top: 10px;
+        z-index: 3;
+      }
+
+      /* Purple Script Text */
+      .script-text {
+        font-family: "Dancing Script", cursive;
+        font-size: 5.5vw;
+        color: #8a2be2; /* Violet/Purple */
+        margin-top: 20px;
+        font-weight: 700;
+        transform: rotate(-5deg);
+        position: relative;
+        z-index: 3;
+      }
+
+      /* 4. CARD OVERLAY */
+      .card-overlay {
+        position: absolute;
+        top: 50%;
+        right: 15vw;
+        transform: translateY(-50%) rotate(3deg);
+        width: 320px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+        z-index: 4;
+      }
+
+      .card-image-header {
+        height: 220px;
+        background-image: linear-gradient(to bottom, #ccc, #888);
+        background-size: cover;
+        background-position: top center;
+        position: relative;
+      }
+
+      .card-image-header img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .card-body-details {
+        padding: 1.5rem;
+        text-align: left;
+      }
+
+      .card-body-details p {
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+      }
+
+      .card-body-details strong {
+        color: var(--dark);
+        font-weight: 600;
+      }
+
+      .status-pill {
+        display: inline-block;
+        padding: 0.3rem 0.6rem;
+        border-radius: 4px;
+        font-weight: 700;
+        font-size: 0.85rem;
+        background-color: #dc3545;
+        color: white;
+      }
+
+      .btn-detailed-view {
+        width: 100%;
+        margin-top: 1rem;
+        background: #000;
+        color: white;
+        border: none;
+        padding: 0.7rem;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: background 0.3s;
+      }
+      .btn-detailed-view:hover {
+        background: #000;
         color: white;
       }
 
       /* Responsive adjustments */
-      @media (max-width: 992px) {
-        .hero-title {
-          font-size: 2.8rem;
+      @media (max-width: 1200px) {
+        .card-overlay {
+          right: 5vw;
+          width: 280px;
         }
-
-        .navbar .getstarted {
-          margin-top: 1rem;
+        .main-title {
+          font-size: 10vw;
+        }
+        .script-text {
+          font-size: 5vw;
         }
       }
 
-      @media (max-width: 768px) {
-        .hero-title {
-          font-size: 2.3rem;
+      @media (max-width: 992px) {
+        .card-overlay {
+          display: none;
         }
-
-        .hero-desc {
-          font-size: 1.1rem;
+        .text-block {
+          position: relative;
+          transform: none;
+          padding-top: 10vh;
         }
-
-        .section-title h2 {
-          font-size: 2rem;
+        .main-title {
+          font-size: 12vw;
+          line-height: 1.1;
+        }
+        .script-text {
+          font-size: 6vw;
+          left: 0;
+          text-align: center;
+          transform: rotate(0deg);
+        }
+        .header-overlay {
+          padding: 1rem 1rem;
         }
       }
     </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Hubot+Sans:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
-    <header id="header" class="fixed-top">
-      <nav class="navbar navbar-expand-lg navbar-light bg-white">
-        <div class="container">
-          <a class="navbar-brand" href="/">Bharatiya Rescue</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarContent"
-            aria-controls="navbarContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="navbar">
-              <li class="nav-item">
-                <a class="nav-link scrollto active" href="#home">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link scrollto" href="#features">Features</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link scrollto" href="#how-it-works"
-                  >How It Works</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link scrollto" href="#faq">FAQ</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  More
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li>
-                    <a class="dropdown-item" href="/missing">Missing Persons</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="/location"
-                      >Tracked Locations</a
-                    >
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="/cameras/"
-                      >Camera Management</a
-                    >
-                  </li>
-                </ul>
-              </li>
-            </ul>
-            <div class="d-flex">
-              <a class="btn btn-outline-primary me-2" href="/register"
-                >Report Case</a
-              >
-              <a class="getstarted scrollto" href="/surveillance"
-                >Surveillance Mode</a
-              >
-            </div>
-          </div>
-        </div>
-      </nav>
+    <div class="map-background"></div>
+
+    <header class="header-overlay">
+      <div class="d-flex justify-content-between align-items-center">
+        <h1 class="header-title">Beacon</h1>
+
+        <i
+          class="bi bi-list menu-toggle-icon"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar"
+        ></i>
+      </div>
     </header>
 
-    <section class="hero-section" id="home">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-6">
-            <h1 class="hero-title">Find Missing Persons with AI Technology</h1>
-            <p class="hero-desc">
-              Bharatiya Rescue uses advanced artificial intelligence to help
-              locate missing persons quickly and efficiently. Our platform
-              analyzes surveillance footage in real-time to identify and track
-              individuals, giving families hope and law enforcement powerful
-              tools.
-            </p>
-            <div class="d-flex flex-wrap gap-2">
-              <a href="/register" class="btn btn-primary btn-lg"
-                >Get Started Free</a
-              >
-              <a href="#how-it-works" class="btn btn-light btn-lg scrollto"
-                >How It Works</a
-              >
-            </div>
-            <div class="mt-4 d-flex flex-wrap gap-5">
-              <div>
-                <h3 class="fw-bold">1000+</h3>
-                <p class="text-muted">Successful Reunions</p>
-              </div>
-              <div>
-                <h3 class="fw-bold">98%</h3>
-                <p class="text-muted">Accuracy Rate</p>
-              </div>
-              <div>
-                <h3 class="fw-bold">24/7</h3>
-                <p class="text-muted">Active Monitoring</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 text-center">
-            <img
-              src="/media/img/hero-img.png"
-              class="img-fluid hero-img"
-              alt="AI SaaS Illustration"
-            />
-          </div>
+    <div
+      class="offcanvas offcanvas-end"
+      tabindex="-1"
+      id="offcanvasNavbar"
+      aria-labelledby="offcanvasNavbarLabel"
+      style="z-index: 1035"
+      data-bs-backdrop="false"
+    >
+      <div class="offcanvas-header">
+        <button
+          type="button"
+          class="btn-close text-reset"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+        <div class="offcanvas-logo">Beacon</div>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1">
+          <li class="nav-item">
+            <a class="nav-link" href="/missing">
+              <i class="bi bi-person-fill-exclamation me-2"></i>Missing Persons
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/locations">
+              <i class="bi bi-geo-alt-fill me-2"></i>Tracked Locations
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/cameras/">
+              <i class="bi bi-camera-video-fill me-2"></i>Camera Management
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/surveillance">
+              <i class="bi bi-eye-fill me-2"></i>Surveillance Mode
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/register">
+              <i class="bi bi-file-earmark-plus-fill me-2"></i>Register Missing
+              Person
+            </a>
+          </li>
+        </ul>
+        {% comment %}
+        <div class="mt-auto">
+          <a class="nav-link" href="/admin/login/">
+            <i class="bi bi-box-arrow-in-right me-2"></i>Admin Login
+          </a>
+        </div>
+        {% endcomment %}
+
+        <!-- Social Media Icons at Bottom -->
+        <div class="social-media-container">
+          <a href="#" class="social-icon">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a href="#" class="social-icon">
+            <i class="bi bi-twitter"></i>
+          </a>
+          <a href="#" class="social-icon">
+            <i class="bi bi-facebook"></i>
+          </a>
+          <a href="#" class="social-icon">
+            <i class="bi bi-linkedin"></i>
+          </a>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section class="stats-section">
-      <div class="container">
-        <div class="row text-center">
-          <div class="col-md-3 col-6 mb-4">
-            <div class="stat-number">500+</div>
-            <div class="stat-text">Law Enforcement Partners</div>
-          </div>
-          <div class="col-md-3 col-6 mb-4">
-            <div class="stat-number">10K+</div>
-            <div class="stat-text">Cameras Connected</div>
-          </div>
-          <div class="col-md-3 col-6 mb-4">
-            <div class="stat-number">30+</div>
-            <div class="stat-text">Cities Covered</div>
-          </div>
-          <div class="col-md-3 col-6 mb-4">
-            <div class="stat-number">2.5s</div>
-            <div class="stat-text">Average Detection Time</div>
-          </div>
-        </div>
+    <main class="main-content-container">
+      <div class="text-block">
+        <h1 class="main-title">
+          MISSING <br />
+          PERSONS <br />
+          FINDER
+        </h1>
+        <h2 class="script-text">Have you seen?</h2>
       </div>
-    </section>
 
-    <section class="features-section" id="features">
-      <div class="container">
-        <div class="section-title">
-          <h2>Powerful Features</h2>
+      <div class="card-overlay d-none d-md-block">
+        <div class="card-image-header">
+          <img
+            src="image_78465c.jpg"
+            alt="Thamizhini - Fictional Missing Person"
+          />
+          <button
+            type="button"
+            class="btn-close float-end position-absolute top-0 end-0 m-2 text-white"
+            style="z-index: 5; filter: drop-shadow(0 0 2px black)"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+
+        <div class="card-body-details">
           <p>
-            Our AI-powered platform offers cutting-edge technology to help find
-            missing persons quickly and efficiently.
+            Name: <strong>Thamizhini</strong> <small>(Fictional person)</small>
           </p>
-        </div>
-        <div class="row g-4">
-          <div class="col-md-6 col-lg-4">
-            <div class="feature-card">
-              <div class="feature-icon"><i class="bi bi-cpu"></i></div>
-              <h4 class="feature-title">Advanced Face Recognition</h4>
-              <p class="feature-desc">
-                Our AI models can identify individuals with 98% accuracy even in
-                challenging conditions like poor lighting or partial
-                obstructions.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="feature-card">
-              <div class="feature-icon"><i class="bi bi-cloud-check"></i></div>
-              <h4 class="feature-title">Cloud-Based Platform</h4>
-              <p class="feature-desc">
-                Access your dashboard from anywhere, with no installation
-                required. Our secure cloud infrastructure ensures 99.9% uptime.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="feature-card">
-              <div class="feature-icon"><i class="bi bi-shield-lock"></i></div>
-              <h4 class="feature-title">Data Privacy & Security</h4>
-              <p class="feature-desc">
-                We employ end-to-end encryption and comply with all privacy
-                regulations to ensure your data remains secure and private.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="feature-card">
-              <div class="feature-icon"><i class="bi bi-speedometer2"></i></div>
-              <h4 class="feature-title">Real-Time Alerts</h4>
-              <p class="feature-desc">
-                Receive instant notifications via SMS, email, or app when a
-                match is detected, enabling rapid response.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="feature-card">
-              <div class="feature-icon"><i class="bi bi-geo-alt"></i></div>
-              <h4 class="feature-title">Location Tracking</h4>
-              <p class="feature-desc">
-                Track detected individuals across multiple camera feeds and view
-                their movement patterns on an interactive map.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="feature-card">
-              <div class="feature-icon"><i class="bi bi-graph-up"></i></div>
-              <h4 class="feature-title">Analytics Dashboard</h4>
-              <p class="feature-desc">
-                Gain insights with detailed reports and analytics on detection
-                patterns, success rates, and system performance.
-              </p>
-            </div>
-          </div>
+          <p>Gender: <strong>FEMALE</strong></p>
+          <p>Status: <span class="status-pill">MISSING</span></p>
+
+          <a href="/missing" class="btn btn-detailed-view">Detailed view</a>
         </div>
       </div>
-    </section>
-
-    <section class="how-it-works" id="how-it-works">
-      <div class="container">
-        <div class="section-title">
-          <h2>How It Works</h2>
-          <p>
-            Our simple three-step process makes it easy to get started with
-            Bharatiya Rescue
-          </p>
-        </div>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="step-card">
-              <div class="step-number">1</div>
-              <h4>Register & Upload</h4>
-              <p>
-                Create an account and upload photos of the missing person along
-                with relevant details.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="step-card">
-              <div class="step-number">2</div>
-              <h4>AI Analysis</h4>
-              <p>
-                Our system scans connected camera networks in real-time using
-                advanced facial recognition algorithms.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="step-card">
-              <div class="step-number">3</div>
-              <h4>Get Notified</h4>
-              <p>
-                Receive immediate alerts when a potential match is found, with
-                location details and confidence ratings.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="text-center mt-5">
-          <a href="/register" class="btn btn-primary btn-lg">Start Now</a>
-        </div>
-      </div>
-    </section>
-
-    <!--
-    <section class="testimonials">
-      <div class="container">
-        <div class="section-title">
-          <h2>Success Stories</h2>
-          <p>
-            Hear from those who have used our platform to reunite with loved
-            ones
-          </p>
-        </div>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="testimonial-card">
-              <p class="testimonial-text">
-                Bharatiya Rescue helped us find my missing father within 6
-                hours. The system detected him at a railway station 50km away.
-                We're forever grateful.
-              </p>
-              <div class="testimonial-author">
-                <img
-                  src="https://randomuser.me/api/portraits/women/65.jpg"
-                  alt="User"
-                  class="author-img"
-                />
-                <div class="author-info">
-                  <h5>Priya Sharma</h5>
-                  <p>Mumbai</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="testimonial-card">
-              <p class="testimonial-text">
-                As a police officer, I've seen many missing person cases. This
-                technology has revolutionized our approach and dramatically
-                improved our success rate.
-              </p>
-              <div class="testimonial-author">
-                <img
-                  src="https://randomuser.me/api/portraits/men/32.jpg"
-                  alt="User"
-                  class="author-img"
-                />
-                <div class="author-info">
-                  <h5>Rajesh Kumar</h5>
-                  <p>Delhi Police</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="testimonial-card">
-              <p class="testimonial-text">
-                Our NGO partnered with Bharatiya Rescue last year. We've since
-                helped reunite 47 missing children with their families. The
-                platform is incredibly effective.
-              </p>
-              <div class="testimonial-author">
-                <img
-                  src="https://randomuser.me/api/portraits/women/45.jpg"
-                  alt="User"
-                  class="author-img"
-                />
-                <div class="author-info">
-                  <h5>Anita Desai</h5>
-                  <p>ChildFind NGO</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    -->
-
-    <!--
-    <section class="pricing-section" id="pricing">
-      <div class="container">
-        <div class="section-title">
-          <h2>Flexible Plans</h2>
-          <p>Choose the plan that works best for your needs</p>
-        </div>
-        <div class="row">
-          <div class="col-md-4 mb-4">
-            <div class="pricing-card">
-              <div class="pricing-header">
-                <h4 class="pricing-name">Basic</h4>
-                <h3 class="pricing-price">₹0</h3>
-                <p class="pricing-duration">Free Forever</p>
-              </div>
-              <div class="pricing-features">
-                <div class="pricing-feature">
-                  <i class="bi bi-check-circle"></i> 1 Active Case
-                </div>
-                <div class="pricing-feature">
-                  <i class="bi bi-check-circle"></i> Basic Search Features
-                </div>
-                <div class="pricing-feature">
-                  <i class="bi bi-check-circle"></i> Email Support
-                </div>
-                <div class="pricing-feature">
-                  <i class="bi bi-check-circle"></i> 24hr Processing Time
-                </div>
-              </div>
-              <div class="pricing-cta">
-                <a href="/register" class="btn btn-outline-primary w-100"
-                  >Get Started</a
-                >
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 mb-4">
-            <div class="pricing-card">
-              <div class="pricing-header bg-success">
-                <h4 class="pricing-name">Professional</h4>
-                <h3 class="pricing-price">₹4,999</h3>
-                <p class="pricing-duration">per month</p>
-              </div>
-              <div class="pricing-features">
-                <div class="pricing-feature">
-                  <i class="bi bi-check-circle"></i> 5 Active Cases
-                </div>
-                <div class="pricing-feature">
-                  <i class="bi bi-check-circle"></i> Priority Processing
-                </div>
-                <div class="pricing-feature">
-                  <i class="bi bi-check-circle"></i> Real-time Alerts
-                </div>
-                <div class="pricing-feature">
-                  <i class="bi bi-check-circle"></i> Phone & Email Support
-                </div>
-                <div class="pricing-feature">
-                  <i class="bi bi-check-circle"></i> Basic Analytics
-                </div>
-              </div>
-              <div class="pricing-cta">
-                <a href="/register" class="btn btn-success w-100"
-                  >Start Free Trial</a
-                >
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 mb-4">
-            <div class="pricing-card">
-              <div class="pricing-header bg-dark">
-                <h4 class="pricing-name">Enterprise</h4>
-                <h3 class="pricing-price">Custom</h3>
-                <p class="pricing-duration">Contact Us</p>
-              </div>
-              <div class="pricing-features">
-                <div class="pricing-feature">
-                  <i class="bi bi-check-circle"></i> Unlimited Cases
-                </div>
-                <div class="pricing-feature">
-                  <i class="bi bi-check-circle"></i> Instant Processing
-                </div>
-                <div class="pricing-feature">
-                  <i class="bi bi-check-circle"></i> API Access
-                </div>
-                <div class="pricing-feature">
-                  <i class="bi bi-check-circle"></i> Dedicated Support
-                </div>
-                <div class="pricing-feature">
-                  <i class="bi bi-check-circle"></i> Advanced Analytics
-                </div>
-                <div class="pricing-feature">
-                  <i class="bi bi-check-circle"></i> Custom Integrations
-                </div>
-              </div>
-              <div class="pricing-cta">
-                <a href="/contact" class="btn btn-dark w-100">Contact Sales</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    -->
-
-    <section class="faq-section" id="faq">
-      <div class="container">
-        <div class="section-title">
-          <h2>Frequently Asked Questions</h2>
-          <p>Find answers to common questions about Bharatiya Rescue</p>
-        </div>
-        <div class="accordion" id="faqAccordion">
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="faq1">
-              <button
-                class="accordion-button"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#faqCollapse1"
-                aria-expanded="true"
-                aria-controls="faqCollapse1"
-              >
-                What is Bharatiya Rescue?
-              </button>
-            </h2>
-            <div
-              id="faqCollapse1"
-              class="accordion-collapse collapse show"
-              aria-labelledby="faq1"
-              data-bs-parent="#faqAccordion"
-            >
-              <div class="accordion-body">
-                Bharatiya Rescue is an AI-powered SaaS platform for missing
-                person detection, providing real-time surveillance and advanced
-                face recognition for organizations and agencies. We help
-                families, law enforcement, and NGOs quickly locate missing
-                individuals through our advanced technology.
-              </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="faq2">
-              <button
-                class="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#faqCollapse2"
-                aria-expanded="false"
-                aria-controls="faqCollapse2"
-              >
-                How does the face recognition work?
-              </button>
-            </h2>
-            <div
-              id="faqCollapse2"
-              class="accordion-collapse collapse"
-              aria-labelledby="faq2"
-              data-bs-parent="#faqAccordion"
-            >
-              <div class="accordion-body">
-                Our platform uses deep learning models to analyze and match
-                faces from video streams and images, enabling rapid and accurate
-                identification of missing persons. The AI is trained on diverse
-                datasets to recognize faces from various angles, in different
-                lighting conditions, and even with partial obstructions.
-              </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="faq3">
-              <button
-                class="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#faqCollapse3"
-                aria-expanded="false"
-                aria-controls="faqCollapse3"
-              >
-                Is my data secure and private?
-              </button>
-            </h2>
-            <div
-              id="faqCollapse3"
-              class="accordion-collapse collapse"
-              aria-labelledby="faq3"
-              data-bs-parent="#faqAccordion"
-            >
-              <div class="accordion-body">
-                Yes. We use enterprise-grade encryption and follow strict
-                privacy policies to ensure your data is always protected and
-                never shared without consent. We are compliant with all relevant
-                data protection regulations and undergo regular security audits.
-              </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="faq4">
-              <button
-                class="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#faqCollapse4"
-                aria-expanded="false"
-                aria-controls="faqCollapse4"
-              >
-                Who can use Bharatiya Rescue?
-              </button>
-            </h2>
-            <div
-              id="faqCollapse4"
-              class="accordion-collapse collapse"
-              aria-labelledby="faq4"
-              data-bs-parent="#faqAccordion"
-            >
-              <div class="accordion-body">
-                Our platform is designed for law enforcement, NGOs, enterprises,
-                and any organization involved in missing person cases or public
-                safety. We also offer individual plans for families searching
-                for loved ones.
-              </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="faq5">
-              <button
-                class="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#faqCollapse5"
-                aria-expanded="false"
-                aria-controls="faqCollapse5"
-              >
-                How long does it take to get results?
-              </button>
-            </h2>
-            <div
-              id="faqCollapse5"
-              class="accordion-collapse collapse"
-              aria-labelledby="faq5"
-              data-bs-parent="#faqAccordion"
-            >
-              <div class="accordion-body">
-                Our system processes data in real-time, with an average
-                detection time of 2.5 seconds. However, the time to actually
-                locate a missing person depends on various factors including
-                camera coverage in the area and how recently the person was
-                sighted.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="cta-section">
-      <div class="container">
-        <h2 class="cta-title">Ready to Get Started?</h2>
-        <p class="mb-4">
-          Join thousands of users who have successfully found missing loved ones
-          with our platform.
-        </p>
-        <div class="cta-buttons">
-          <a href="/register" class="btn btn-light btn-lg"
-            >Create Free Account</a
-          >
-          <a href="/contact" class="btn btn-outline-light btn-lg"
-            >Contact Sales</a
-          >
-        </div>
-      </div>
-    </section>
-
-    <footer id="footer">
-      <div class="container">
-        <div class="row pb-4 align-items-center">
-          <div class="col-md-6 mb-4 mb-md-0">
-            <div class="footer-logo mb-2">Bharatiya Rescue</div>
-            <div>AI SaaS for Missing Person Detection</div>
-          </div>
-          <div class="col-md-6 text-md-end">
-            <a href="#features" class="me-3 scrollto">Features</a>
-            <a href="#how-it-works" class="me-3 scrollto">How It Works</a>
-            {% comment %} <a href="#pricing" class="me-3 scrollto">Pricing</a> {% endcomment %}
-            <a href="#faq" class="me-3 scrollto">FAQ</a>
-            <a href="/register" class="me-3">Report Case</a>
-            <a href="/surveillance" class="me-3">Surveillance Mode</a>
-            {% comment %} <a href="/privacy" class="me-3">Privacy Policy</a> {% endcomment %}
-          </div>
-        </div>
-        <div class="footer-bottom text-center">
-          &copy; 2023 Bharatiya Rescue. All rights reserved.
-        </div>
-      </div>
-    </footer>
-
-    <a
-      href="#"
-      class="back-to-top d-flex align-items-center justify-content-center"
-      ><i class="bi bi-arrow-up-short"></i
-    ></a>
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
     <script>
-      /**
-       * Template Name: Arsha
-       * Updated: Jul 27 2023 with Bootstrap v5.3.1
-       * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
-       * Author: BootstrapMade.com
-       * License: https://bootstrapmade.com/license/
-       */
-      (function () {
-        "use strict";
+      document.addEventListener("click", function (event) {
+        const offcanvas = document.getElementById("offcanvasNavbar");
+        const isOpen = offcanvas.classList.contains("show");
 
-        /**
-         * Easy selector helper function
-         */
-        const select = (el, all = false) => {
-          el = el.trim();
-          if (all) {
-            return [...document.querySelectorAll(el)];
-          } else {
-            return document.querySelector(el);
-          }
-        };
+        // if menu not open → do nothing
+        if (!isOpen) return;
 
-        /**
-         * Easy event listener function
-         */
-        const on = (type, el, listener, all = false) => {
-          let selectEl = select(el, all);
-          if (selectEl) {
-            if (all) {
-              selectEl.forEach((e) => e.addEventListener(type, listener));
-            } else {
-              selectEl.addEventListener(type, listener);
-            }
-          }
-        };
+        // if clicked INSIDE offcanvas → do nothing
+        if (offcanvas.contains(event.target)) return;
 
-        /**
-         * Easy on scroll event listener
-         */
-        const onscroll = (el, listener) => {
-          el.addEventListener("scroll", listener);
-        };
+        // CLOSE menu when clicked outside
+        const bsOffcanvas = bootstrap.Offcanvas.getInstance(offcanvas);
+        bsOffcanvas.hide();
+      });
 
-        /**
-         * Navbar links active state on scroll
-         */
-        let navbarlinks = select("#navbar .scrollto", true);
-        const navbarlinksActive = () => {
-          let position = window.scrollY + 200;
-          navbarlinks.forEach((navbarlink) => {
-            if (!navbarlink.hash) return;
-            let section = select(navbarlink.hash);
-            if (!section) return;
-            if (
-              position >= section.offsetTop &&
-              position <= section.offsetTop + section.offsetHeight
-            ) {
-              navbarlink.classList.add("active");
-            } else {
-              navbarlink.classList.remove("active");
-            }
+      // Close menu when user clicks a nav-link
+      document
+        .querySelectorAll("#offcanvasNavbar .nav-link")
+        .forEach((item) => {
+          item.addEventListener("click", () => {
+            const offcanvas = document.getElementById("offcanvasNavbar");
+            const bsOffcanvas = bootstrap.Offcanvas.getInstance(offcanvas);
+            bsOffcanvas.hide();
           });
-        };
-        window.addEventListener("load", navbarlinksActive);
-        onscroll(document, navbarlinksActive);
-
-        /**
-         * Scrolls to an element with header offset
-         */
-        const scrollto = (el) => {
-          let header = select("#header");
-          let offset = header.offsetHeight;
-
-          let elementPos = select(el).offsetTop;
-          window.scrollTo({
-            top: elementPos - offset,
-            behavior: "smooth",
-          });
-        };
-
-        /**
-         * Toggle .header-scrolled class to #header when page is scrolled
-         */
-        let selectHeader = select("#header");
-        if (selectHeader) {
-          const headerScrolled = () => {
-            if (window.scrollY > 100) {
-              selectHeader.classList.add("header-scrolled");
-            } else {
-              selectHeader.classList.remove("header-scrolled");
-            }
-          };
-          window.addEventListener("load", headerScrolled);
-          onscroll(document, headerScrolled);
-        }
-
-        /**
-         * Back to top button
-         */
-        let backtotop = select(".back-to-top");
-        if (backtotop) {
-          const toggleBacktotop = () => {
-            if (window.scrollY > 100) {
-              backtotop.classList.add("active");
-            } else {
-              backtotop.classList.remove("active");
-            }
-          };
-          window.addEventListener("load", toggleBacktotop);
-          onscroll(document, toggleBacktotop);
-        }
-
-        /**
-         * Mobile nav toggle
-         */
-        on("click", ".mobile-nav-toggle", function (e) {
-          select("#navbar").classList.toggle("navbar-mobile");
-          this.classList.toggle("bi-list");
-          this.classList.toggle("bi-x");
         });
-
-        /**
-         * Mobile nav dropdowns activate
-         */
-        on(
-          "click",
-          ".navbar .dropdown > a",
-          function (e) {
-            if (select("#navbar").classList.contains("navbar-mobile")) {
-              e.preventDefault();
-              this.nextElementSibling.classList.toggle("dropdown-active");
-            }
-          },
-          true
-        );
-
-        /**
-         * Scrool with ofset on links with a class name .scrollto
-         */
-        on(
-          "click",
-          ".scrollto",
-          function (e) {
-            if (select(this.hash)) {
-              e.preventDefault();
-
-              let navbar = select("#navbar");
-              if (navbar.classList.contains("navbar-mobile")) {
-                navbar.classList.remove("navbar-mobile");
-                let navbarToggle = select(".mobile-nav-toggle");
-                navbarToggle.classList.toggle("bi-list");
-                navbarToggle.classList.toggle("bi-x");
-              }
-              scrollto(this.hash);
-            }
-          },
-          true
-        );
-
-        /**
-         * Scroll with ofset on page load with hash links in the url
-         */
-        window.addEventListener("load", () => {
-          if (window.location.hash) {
-            if (select(window.location.hash)) {
-              scrollto(window.location.hash);
-            }
-          }
-        });
-
-        // Add animation to elements when they scroll into view
-        function animateOnScroll() {
-          const elements = document.querySelectorAll(
-            ".feature-card, .step-card, .testimonial-card, .pricing-card"
-          );
-
-          elements.forEach((element) => {
-            const position = element.getBoundingClientRect().top;
-            const screenPosition = window.innerHeight / 1.3;
-
-            if (position < screenPosition) {
-              element.style.opacity = 1;
-              element.style.transform = "translateY(0)";
-            }
-          });
-        }
-
-        // Initialize elements with hidden state
-        document
-          .querySelectorAll(
-            ".feature-card, .step-card, .testimonial-card, .pricing-card"
-          )
-          .forEach((element) => {
-            element.style.opacity = 0;
-            element.style.transform = "translateY(20px)";
-            element.style.transition = "all 0.5s ease";
-          });
-
-        window.addEventListener("scroll", animateOnScroll);
-        window.addEventListener("load", animateOnScroll);
-      })();
     </script>
   </body>
 </html>
